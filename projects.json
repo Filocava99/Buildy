@@ -1,10 +1,1 @@
-[
-  {
-    "repository": {
-      "name": "KotlinLib",
-      "owner": "filocava99",
-      "branches": {}
-    },
-    "mainBranch": "master"
-  }
-]
+[{"repository":{"name":"KotlinLib","owner":"filocava99","branches":{}},"mainBranch":"master"}]
