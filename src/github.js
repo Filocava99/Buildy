@@ -5,8 +5,7 @@ const axios = require('axios').create({
     headers: {'Authorization': 'token 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'}
 });
 const path = require("path");
-
-
+const hbs = require("hbs");
 const fs = require('fs')
 
 
@@ -79,12 +78,19 @@ function test() {
     // }).then(function (response) {
     //     console.log(response.data[0].sha)
     // })
+    /*
     let repo = new Repository("Fortress", "filocava99")
     let project = new Project("Fortress", "filocava99", "master")
     project.repository.getInformation().then(()=>{
         cloneProject(project).then(()=>buildProject(project)).then(()=>console.log("Build successful"))
     })
-    fs.writeFileSync('./projects.json', JSON.stringify([project]), 'utf8')
+    fs.writeFileSync('./projects.json', JSON.stringify([project]), 'utf8')*/
+    let string = fs.readFileSync("views/index.hbs", "utf8")
+    //console.log(string)
+    let template = hbs.compile(string)
+    //console.log(template)
+    let result = template({title: "Prova"})
+    console.log(result)
 }
 
 module.exports = {
