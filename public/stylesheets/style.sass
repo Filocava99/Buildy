@@ -1,22 +1,107 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700)
 
+$odd-table-row-color: #7f7f7f
+$even-table-row-color: #9a9a9a
+
+$dark-color: #383838
+$background-color: #2C3233
+
 html
-  font-family: Noto
+  font-family: 'Noto Sans', serif
+  color: white
+  height: 100%
 
 body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  margin-left: 0
+  width: 100%
+  background-color: $background-color
+  overflow-x: hidden
+  height: 100%
 
-a
-  color: #00B7FF
 
-.sidebar
+.header
+  padding: 5px
+  margin-bottom: 1%
+  background-color: $dark-color
+  height: 5%
+
+.page
   display: flex
-  width: 25%
+  gap: 5%
+  margin-left: 1%
+  height: 95%
 
 .content
   display: flex
   width: 70%
 
-tr:nth-child(even)
-  background-color: #303030
+.flex
+  display: flex
+
+.sidebar
+  display: flex
+  float: left
+  width: 25%
+  height: 100%
+  flex-direction: column
+  box-shadow: 0 3px 6px #20292f
+  border-left: 3px solid $dark-color
+  border-right: 3px solid $dark-color
+  background-color: $dark-color
+
+.sidebar-header
+  text-align: center
+  height: 34px
+  padding: 5px
+  display: block
+  line-height: 34px
+  font-size: 20px
+  background-color: $dark-color
+
+.sidebar-content table
+  border-collapse: collapse
+  width: 100%
+
+.sidebar-content table td
+  padding: 5px
+  text-align: center
+
+.sidebar-content table tr
+  background-color: $even-table-row-color
+
+.sidebar-content table tr:nth-child(odd)
+  background-color: $odd-table-row-color
+
+.centered-img
+  margin: auto
+  height: 34px
+
+
+.inverted-img
+  filter: invert(1) brightness(.95)
+
+.builds
+  display: block
+  height: 50%
+  overflow-y: auto
+  width: 100%
+
+.build
+  padding: 1px
+  display: flex
+  height: 50px
+  gap: 5%
+
+.build a
+  vertical-align: middle
+  line-height: 50px
+
+.build-state
+  height: 100%
+  width: 35px
+
+.build-even
+  background-color: $even-table-row-color
+
+.build-odd
+  background-color: $odd-table-row-color

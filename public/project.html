@@ -7,21 +7,66 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
-<div class="sidebar">
-    <span class="sidebar-header">Project Info</span>
-    <div class="sidebar-content">
-        <table>
-            <tr>
-                <td>
-                    <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/bug.svg">
-                </td>
-                <td>Issues</td>
-            </tr>
-        </table>
-    </div>
+<div class="header">
+    <img class="centered-img inverted-img"
+         src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/arrow-left.svg" alt="bug icon">
 </div>
-<div class="content">
-
+<div class="page flex">
+    <div class="sidebar">
+        <span class="sidebar-header">Project Info</span>
+        <div class="sidebar-content">
+            <table>
+                <tr>
+                    <td>
+                        <img class="centered-img inverted-img"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/mark-github.svg" alt="bug icon">
+                    </td>
+                    <td><a href="#">GitHub repository</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="centered-img inverted-img"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/bug.svg" alt="bug icon">
+                    </td>
+                    <td><a href="#">Issues</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="centered-img inverted-img"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/checklist.svg" alt="bug icon">
+                    </td>
+                    <td><a href="#">Last successful build</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img class="centered-img inverted-img"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/check.svg" alt="bug icon">
+                    </td>
+                    <td><a href="#">#</a></td>
+                </tr>
+            </table>
+        </div>
+        <span class="sidebar-header">Builds</span>
+        <div class="builds">
+            <div class="build build-odd">
+                <svg class="build-state" height="25" width="25">
+                    <circle cx="15" cy="24" r="12" stroke="rgb(60, 100, 60)" stroke-width="2" fill="rgb(20, 255, 20)"></circle>
+                </svg>
+                <a href="#">#2</a>
+                <a href="#">08/03/2022 14:30:15</a>
+            </div>
+            <div class="build build-even">
+                <svg class="build-state" height="25" width="25">
+                    <circle cx="15" cy="24" r="12" stroke="rgb(100, 60, 60)" stroke-width="2" fill="rgb(255, 20, 20)"></circle>
+                </svg>
+                <a href="#">#1</a>
+                <a href="#">07/03/2022 14:30:15</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <p>Content here</p>
+    </div>
 </div>
 </body>
 </html>
