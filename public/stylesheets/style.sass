@@ -5,11 +5,14 @@ $even-table-row-color: #9a9a9a
 
 $dark-color: #383838
 $background-color: #2C3233
+$build-info-header: #009800
+$shadow-color: #454545
 
 html
   font-family: 'Noto Sans', serif
   color: white
-  height: 100%
+  height: 95%
+  width: 100%
 
 body
   margin-left: 0
@@ -25,18 +28,21 @@ body
   background-color: $dark-color
   height: 5%
 
+.header img
+  height: 100%
+
 .page
   display: flex
   gap: 5%
   margin-left: 1%
-  height: 95%
+  height: 90%
 
 .content
   display: flex
-  width: 70%
-
-.flex
-  display: flex
+  width: 65%
+  flex-direction: column
+  height: 100%
+  gap: 3%
 
 .sidebar
   display: flex
@@ -44,7 +50,7 @@ body
   width: 25%
   height: 100%
   flex-direction: column
-  box-shadow: 0 3px 6px #20292f
+  box-shadow: 0 3px 6px $shadow-color
   border-left: 3px solid $dark-color
   border-right: 3px solid $dark-color
   background-color: $dark-color
@@ -66,7 +72,7 @@ body
   padding: 5px
   text-align: center
 
-.sidebar-content table tr
+.sidebar-content table tr:nth-child(even)
   background-color: $even-table-row-color
 
 .sidebar-content table tr:nth-child(odd)
@@ -75,7 +81,7 @@ body
 .centered-img
   margin: auto
   height: 34px
-
+  vertical-align: middle
 
 .inverted-img
   filter: invert(1) brightness(.95)
@@ -105,3 +111,79 @@ body
 
 .build-odd
   background-color: $odd-table-row-color
+
+.build-info
+  width: 100%
+  box-shadow: 0 5px 8px $shadow-color
+  border-collapse: collapse
+  height: 30%
+
+.build-info td
+  padding: 1%
+
+.content-header
+  display: flex
+  flex-direction: row
+  height: 15%
+
+.content-header-title
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 100%
+  width: 100%
+  text-transform: uppercase
+  font-weight: bold
+
+.build-info-header
+  font-weight: bold
+  background-color: $build-info-header
+
+.build-info-row:nth-child(even)
+  background-color: $even-table-row-color
+
+.build-info-row:nth-child(odd)
+  background-color: $odd-table-row-color
+
+.copyright
+  font-size: 80%
+  font-style: italic
+  color: #9a9a9a
+  text-align: center
+  width: 100%
+  display: block
+
+.commit
+  height: 5%
+  padding: 5%
+  flex-direction: column
+  display: flex
+  justify-content: center
+  box-shadow: 0 0 3px 3px $shadow-color
+
+.commit-header
+  height: 50%
+  margin-bottom: 1%
+  padding: 2%
+  text-align: center
+  flex-direction: row
+  display: flex
+  justify-content: center
+
+.committer-avatar
+  height: 100%
+  display: inline-block
+
+.commit-body
+  text-align: center
+  font-size: 120%
+
+.commit-header-message
+  margin-left: 1%
+  display: inline-flex
+  flex-direction: column
+  justify-content: center
+  height: 100%
+
+
+
