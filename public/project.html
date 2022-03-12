@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/build.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -56,62 +56,65 @@
                     <circle cx="15" cy="24" r="12" stroke="rgb(60, 100, 60)" stroke-width="2"
                             fill="rgb(20, 255, 20)"></circle>
                 </svg>
-                <a href="#">#2</a>
-                <a href="#">08/03/2022 14:30:15</a>
+                <a href="#" class="build-id-link">#2</a>
+                <a href="#" class="build-timestamp-link">08/03/2022 14:30:15</a>
             </div>
             <div class="build build-even">
                 <svg class="build-state" height="25" width="25">
                     <circle cx="15" cy="24" r="12" stroke="rgb(100, 60, 60)" stroke-width="2"
                             fill="rgb(255, 20, 20)"></circle>
                 </svg>
-                <a href="#">#1</a>
-                <a href="#">07/03/2022 14:30:15</a>
+                <a href="#" class="build-id-link">#1</a>
+                <a href="#" class="build-timestamp-link">07/03/2022 14:30:15</a>
             </div>
         </div>
     </div>
     <div class="content">
-        <div class="content-header">
-            <svg preserveAspectRatio="xMidYMid meet" width="15%" height="100%">
-                <circle cx="50%" cy="50%" r="25%" stroke="rgb(60, 100, 60)" stroke-width="2%"
-                        fill="rgb(20, 255, 20)"></circle>
-            </svg>
-            <div class="content-header-title">
-                Success
+        <div class="build-content" id="build-1">
+            <div class="content-header">
+                <svg preserveAspectRatio="xMidYMid meet" width="15%" height="100%">
+                    <circle cx="50%" cy="50%" r="25%" stroke="rgb(60, 100, 60)" stroke-width="2%"
+                            fill="rgb(20, 255, 20)"></circle>
+                </svg>
+                <div class="content-header-title">
+                    Success
+                </div>
             </div>
-        </div>
-        <table class="build-info">
-            <tr class="build-info-header">
-                <td><img class="centered-img inverted-img" alt="download"
-                         src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/cloud-download.svg"></td>
-                <td>Download (.jar)</td>
-                <td>[project name]</td>
-            </tr>
-            <tr class="build-info-row">
-                <td><img class="centered-img inverted-img" alt="download"
-                         src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file.svg"></td>
-                <td>Build Log</td>
-                <td>[project name]</td>
-            </tr>
-            <tr class="build-info-row">
-                <td><img class="centered-img inverted-img" alt="download"
-                         src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file-code.svg"></td>
-                <td>Source Code</td>
-                <td>[project name]</td>
-            </tr>
-            <tr class="build-info-row">
-                <td><img class="centered-img inverted-img" alt="download"
-                         src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/law.svg"></td>
-                <td>License</td>
-                <td>[project name]</td>
-            </tr>
-        </table>
-        <div class="commit">
-            <div class="commit-header">
-                    <img class="committer-avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/1363669?v=4">
+            <table class="build-info">
+                <tr class="build-info-header">
+                    <td><img class="centered-img inverted-img" alt="download"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/cloud-download.svg"></td>
+                    <td>Download (.jar)</td>
+                    <td>[project name]</td>
+                </tr>
+                <tr class="build-info-row">
+                    <td><img class="centered-img inverted-img" alt="download"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file.svg"></td>
+                    <td>Build Log</td>
+                    <td>[project name]</td>
+                </tr>
+                <tr class="build-info-row">
+                    <td><img class="centered-img inverted-img" alt="download"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file-code.svg"></td>
+                    <td>Source Code</td>
+                    <td>[project name]</td>
+                </tr>
+                <tr class="build-info-row">
+                    <td><img class="centered-img inverted-img" alt="download"
+                             src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/law.svg"></td>
+                    <td>License</td>
+                    <td>[project name]</td>
+                </tr>
+            </table>
+            <div class="commit">
+                <div class="commit-header">
+                    <img class="committer-avatar" alt="avatar"
+                         src="https://avatars.githubusercontent.com/u/1363669?v=4">
                     <span class="commit-header-message">Filocava99 commited on 10 Jan 2022 (19:41:18) #904da</span>
-            </div>
-            <div class="commit-body">
-                "Fix some stuff on my fake project"
+                </div>
+                <div class="commit-body">
+                    "Fix some stuff on my fake project"
+                </div>
             </div>
         </div>
     </div>

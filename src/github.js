@@ -7,6 +7,7 @@ const axios = require('axios').create({
 const path = require("path");
 const hbs = require("hbs");
 const fs = require('fs')
+const Build = require("./build");
 
 
 function getProjects(){
@@ -85,12 +86,25 @@ function test() {
         cloneProject(project).then(()=>buildProject(project)).then(()=>console.log("Build successful"))
     })
     fs.writeFileSync('./projects.json', JSON.stringify([project]), 'utf8')*/
-    let string = fs.readFileSync("views/index.hbs", "utf8")
+    let string = fs.readFileSync("views/project.hbs", "utf8")
     //console.log(string)
+    hbs.registerHelper('isEven', function (value) {
+        return value%2===0;
+    });
+    hbs.registerHelper('isLatestBuild', function (latestBuildId, buildId) {
+        console.log(latestBuildId)
+        console.log(buildId)
+        return latestBuildId === buildId;
+    });
+    let builds = [
+        new Build(1, true, "Success", "MyCoolProject", "filocava99", "2022-03-08 (15:03:30)", "348576", "Add cool stuff to the project"),
+        new Build(2, false, "Failure", "MyCoolProject", "filocava99", "2022-03-08 (15:03:30)", "348576", "Add cool stuff to the project")
+    ]
+
     let template = hbs.compile(string)
     //console.log(template)
-    let result = template({title: "Prova"})
-    console.log(result)
+    let result = template({builds: builds, latestBuildId: 2})
+    fs.writeFileSync("public/projects_auto.html", result)
 }
 
 module.exports = {
