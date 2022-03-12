@@ -63,7 +63,6 @@ function buildProject(project){
         console.log('[spawn] stdout: ', data.toString());
     });
     return promise
-
 }
 
 async function requestToGithub(endpoint, config) {
