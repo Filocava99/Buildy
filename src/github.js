@@ -4,23 +4,9 @@ const axios = require('axios').create({
     timeout: 1000,
     headers: {'Authorization': 'token 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'}
 });
-const path = require("path");
 const hbs = require("hbs");
 const fs = require('fs')
 const Build = require("./build");
-
-
-function getProjects(){
-    const data = fs.readFileSync('./projects.json', 'utf8')
-    let projects = JSON.parse(data)
-}
-
-class Project {
-    constructor(name, owner, mainBranch) {
-        this.repository = new Repository(name, owner)
-        this.mainBranch = mainBranch
-    }
-}
 
 class Repository {
     constructor(name, owner) {
@@ -55,18 +41,17 @@ function cloneProject(project){
     return spawn("git", ["clone", "-b", project.mainBranch, project.repository.cloneUrl, `projects/${project.repository.name}`])
 }
 
-function buildProject(project){
-    let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
-    console.log(gradleBuildScript)
-    let promise = spawn(gradleBuildScript,[project.repository.name])
-    promise.childProcess.stdout.on('data', function (data) {
-        console.log('[spawn] stdout: ', data.toString());
-    });
-    return promise
-}
-
 async function requestToGithub(endpoint, config) {
     return axios.get(endpoint, config)
+}
+
+async function getLatestCommitSha(project){
+    return requestToGithub(`/repos/${project.repository.owner}/${project.repository.name}/commits`, {
+        params: {
+            per_page: 1,
+            sha: project.mainBranch
+        }
+    })
 }
 
 function test() {
@@ -91,8 +76,6 @@ function test() {
         return value%2===0;
     });
     hbs.registerHelper('isLatestBuild', function (latestBuildId, buildId) {
-        console.log(latestBuildId)
-        console.log(buildId)
         return latestBuildId === buildId;
     });
     let builds = [
@@ -107,5 +90,8 @@ function test() {
 }
 
 module.exports = {
-    test
+    Repository,
+    cloneProject,
+    requestToGithub,
+    getLatestCommitSha
 }

@@ -1,1 +1,11 @@
-[{"repository":{"name":"Fortress","owner":"filocava99","branches":{}},"mainBranch":"master"}]
+[
+  {
+    "name": "Fortress",
+    "repository": {
+      "name": "Fortress",
+      "owner": "filocava99"
+    },
+    "mainBranch": "master",
+    "latestCommitSha": ""
+  }
+]

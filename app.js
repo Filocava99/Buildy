@@ -45,6 +45,6 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-require('./src/github').test()
+require('./src/main').main()
 
 module.exports = app;
