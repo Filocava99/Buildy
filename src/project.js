@@ -61,7 +61,8 @@ class Project {
         let newBuildFile = `${this.projectName}-${this.buildsCount++}.${fileExtension}`
         return fs.promises.mkdir(`builds/${this.projectName}/`, {recursive: true})
             .then(() => fs.promises.rename(buildPath, `builds/${this.projectName}/${newBuildFile}`)
-                .then(() => this.commitBuild(newBuildFile)))
+                .then(() => fs.promises.rm(`projects/`, {recursive: true, force: true}))
+                    .then(() => this.commitBuild(newBuildFile)))
     }
 
     async commitBuild(buildName) {
