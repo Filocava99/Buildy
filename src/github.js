@@ -7,6 +7,7 @@ const axios = require('axios').create({
 const hbs = require("hbs");
 const fs = require('fs')
 const Build = require("./build");
+const {response} = require("express");
 
 class Repository {
     constructor(name, owner) {
@@ -45,13 +46,27 @@ async function requestToGithub(endpoint, config) {
     return axios.get(endpoint, config)
 }
 
-async function getLatestCommitSha(project){
-    return requestToGithub(`/repos/${project.repository.owner}/${project.repository.name}/commits`, {
-        params: {
-            per_page: 1,
-            sha: project.mainBranch
-        }
+async function getLatestCommit(project){
+    return new Promise((resolve, reject) => {
+        requestToGithub(`/repos/${project.repository.owner}/${project.repository.name}/commits`, {
+            params: {
+                per_page: 1,
+                sha: project.mainBranch
+            }
+        }).then(response => resolve(response.data[0]))
     })
+}
+
+function getShaFromCommit(commit){
+    return commit.sha
+}
+
+function getCommitterFromCommit(commit){
+    return commit.commit.committer
+}
+
+function getMessageFromCommit(commit){
+    return commit.message;
 }
 
 function test() {
@@ -93,5 +108,8 @@ module.exports = {
     Repository,
     cloneProject,
     requestToGithub,
-    getLatestCommitSha
+    getLatestCommit,
+    getShaFromCommit,
+    getCommitterFromCommit,
+    getMessageFromCommit
 }

@@ -1,17 +1,25 @@
 const fs = require("fs")
-const project = require("./project")
-const {getLatestCommitSha} = require("./github");
+const {getLatestCommit} = require("./github");
+const handlebar = require("./handlebar")
+const settings = require("./settings")
+const {saveProjectArray, Project, parseProjectArray} = require("./project");
 
-function main(){
-    let projects = project.parseProjectArray(fs.readFileSync('./projects.json', 'utf8'))
-    projects.forEach(proj => {
-        getLatestCommitSha(proj).then(function (response) {
-           let latestSha = response.data[0].sha
-            if(latestSha !== proj.latestCommitSha){
-                proj.repository.getInformation().then(()=>proj.clone()).then(()=>proj.build()).then(()=>proj.save())
-            }
-        })
-    })
+async function main(){
+    let projectsJson = await fs.promises.readFile(settings.projectsPath, settings.projectsEncoding)
+    let projects = await parseProjectArray(projectsJson)
+    for (const proj of projects) {
+        let latestCommit = await getLatestCommit(proj)
+        let sha = latestCommit.sha
+        if(sha !== proj.latestCommitSha){
+            await proj.repository.getInformation()
+            await proj.clone()
+            let build = await proj.build(latestCommit)
+            await proj.saveBuild(build)
+            await proj.commitBuild(build)
+            await handlebar.generatePage(proj)
+        }
+    }
+    await saveProjectArray(projects, settings.projectsPath, settings.projectsEncoding)
 }
 
 module.exports = {
