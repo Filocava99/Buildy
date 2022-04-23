@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/[repo]/">
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../../../public/stylesheets/style.css">
@@ -52,6 +53,15 @@
         </div>
         <span class="sidebar-header">Builds</span>
         <div class="builds">
+                <div class="build build-odd">
+
+                <svg class="build-state" height="25" width="25">
+                        <circle cx="15" cy="24" r="12" stroke="rgb(100, 60, 60)" stroke-width="2"
+                                fill="rgb(255, 20, 20)"></circle>
+                </svg>
+                <a href="#" data-build-id="13" class="build-id-link">#13</a>
+                <a href="#" data-build-id="13" class="build-timestamp-link">08/03/2022 14:30:15</a>
+            </div>
                 <div class="build build-even">
 
                 <svg class="build-state" height="25" width="25">
@@ -163,7 +173,49 @@
         </div>
         </div>
         <div class="content">
-                <div class="build-content" id="selected-build" data-build-id="12">
+                <div class="build-content" id="selected-build" data-build-id="13">
+                <div class="content-header">
+                    <svg preserveAspectRatio="xMidYMid meet" width="15%" height="100%">
+                            <circle cx="50%" cy="50%" r="25%" stroke="rgb(100, 60, 60)" stroke-width="2%"
+                                    fill="rgb(255, 20, 20)"></circle>
+                    </svg>
+                    <div class="content-header-title">
+                        Failure
+                    </div>
+                </div>
+                <table class="build-info">
+                    <tr class="build-info-row">
+                        <td><img class="centered-img inverted-img" alt="download"
+                                 src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file.svg"></td>
+                        <td>Build Log</td>
+                        <td>[project name]</td>
+                    </tr>
+                    <tr class="build-info-row">
+                        <td><img class="centered-img inverted-img" alt="download"
+                                 src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file-code.svg"></td>
+                        <td>Source Code</td>
+                        <td>[project name]</td>
+                    </tr>
+                    <tr class="build-info-row">
+                        <td><img class="centered-img inverted-img" alt="download"
+                                 src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/law.svg"></td>
+                        <td>License</td>
+                        <td>[project name]</td>
+                    </tr>
+                </table>
+                <div class="commit">
+                    <div class="commit-header">
+                        <img class="committer-avatar" alt="avatar"
+                             src="https://avatars.githubusercontent.com/u/1363669?v=4">
+                        <span class="commit-header-message">TitoTigi committed on 2022-01-27T11:58:02Z
+                            #ac3fd00966db2037034d334461892877389de771</span>
+                    </div>
+                    <div class="commit-body">
+                        ""
+                    </div>
+                </div>
+            </div>
+                <div class="build-content hidden" data-build-id="12">
                 <div class="content-header">
                     <svg preserveAspectRatio="xMidYMid meet" width="15%" height="100%">
                             <circle cx="50%" cy="50%" r="25%" stroke="rgb(100, 60, 60)" stroke-width="2%"
