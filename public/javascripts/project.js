@@ -1,12 +1,13 @@
 $(function(){
-    $(".build-id-link").click((element)=>onBuildClick($(element.target)))
-    $(".build-timestamp-link").click((element)=>onBuildClick($(element.target)))
+    $(".build-id-link").click((event)=>onBuildClick(event))
+    $(".build-timestamp-link").click((event)=>onBuildClick(event))
 
 
-    function onBuildClick(selector){
-        console.log("triggered")
+    function onBuildClick(event){
+        event.preventDefault()
+        event.stopPropagation()
+        let selector = $(event.target)
         let buildId = selector.data('build-id')
-        console.log(buildId)
         hideSelectedBuild()
         updateSelectedBuild(buildId)
     }

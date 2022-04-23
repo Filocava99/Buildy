@@ -20,7 +20,8 @@ async function generatePage(proj){
     let string = fs.readFileSync("views/project.hbs", "utf8")
     let template = hbs.compile(string)
     let result = template({builds: [...proj.builds].reverse(), latestBuildId: proj.getLatestBuild().id})
-    return fs.promises.writeFile("public/projects_auto.html", result)
+    console.log(`builds/${proj.projectName}/${proj.projectName}.html`)
+    return fs.promises.writeFile(`builds/${proj.projectName}/${proj.projectName}.html`, result)
 }
 
 module.exports = {

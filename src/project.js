@@ -2,7 +2,6 @@ const path = require("path");
 const spawn = require('child-process-promise').spawn;
 const fs = require("fs")
 const github = require("./github")
-const util = require('util')
 const Build = require("./build")
 const settings = require("./settings")
 
@@ -39,10 +38,10 @@ class Project {
     async build(latestCommit) {
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         let log = ""
-        let promise = new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             let processPromise = spawn(gradleBuildScript, [this.repository.name])
             processPromise.childProcess.stdout.on('data', function (data) {
-                 log += data
+                log += data
                 console.log(data)
             });
             processPromise.then((result) => {
@@ -56,7 +55,6 @@ class Project {
                 resolve(this.createBuild(latestCommit, false))
             })
         })
-        return promise
     }
 
     async createBuild(latestCommit, isSuccess) {

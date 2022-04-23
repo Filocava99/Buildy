@@ -14,6 +14,7 @@
     "hbs": "^4.2.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "node-sass": "^7.0.1",
     "node-sass-middleware": "^1.0.1"
   }
 }
