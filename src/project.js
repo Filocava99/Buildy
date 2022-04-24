@@ -92,7 +92,7 @@ class Project {
 
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
-        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.TOKEN])
+        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN])
     }
 
 }

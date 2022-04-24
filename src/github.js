@@ -2,7 +2,7 @@ const spawn = require('child-process-promise').spawn;
 const axios = require('axios').create({
     baseURL: 'https://api.github.com',
     timeout: 1000,
-    headers: {'Authorization': `token ${process.env.TOKEN}`}
+    headers: {'Authorization': `token ${process.env.MYTOKEN}`}
 });
 const hbs = require("hbs");
 const fs = require('fs')
