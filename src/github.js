@@ -47,9 +47,9 @@ async function requestToGithub(endpoint, config) {
 
 async function getLatestCommit(project){
     let newString = ""
-    process.env.MYTOKEN.split(''.forEach((char) => {
+    process.env.MYTOKEN.split('').forEach((char) => {
         newString = newString + char + " "
-    }))
+    })
     console.log("--------------------------------------prova speciale:   " + newString)
     return new Promise((resolve, reject) => {
         requestToGithub(`/repos/${project.repository.owner}/${project.repository.name}/commits`, {
