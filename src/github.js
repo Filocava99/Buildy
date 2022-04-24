@@ -2,12 +2,11 @@ const spawn = require('child-process-promise').spawn;
 const axios = require('axios').create({
     baseURL: 'https://api.github.com',
     timeout: 1000,
-    headers: {'Authorization': 'token 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'}
+    headers: {'Authorization': `token ${process.env.TOKEN}`}
 });
 const hbs = require("hbs");
 const fs = require('fs')
 const Build = require("./build");
-const {response} = require("express");
 
 class Repository {
     constructor(name, owner) {
@@ -27,7 +26,7 @@ class Repository {
             this.cloneUrl = data.clone_url
             this.stargazers = data.stargazers_count
             this.language = data.language
-            this.license = data.license
+            this.license = data.license.name
             this.updatedAt = data.updated_at
             return requestToGithub(`/repos/${this.owner}/${this.name}/branches`)
         }).then((res) => {
@@ -66,7 +65,7 @@ function getCommitterFromCommit(commit){
 }
 
 function getMessageFromCommit(commit){
-    return commit.message;
+    return commit.commit.message;
 }
 
 function test() {

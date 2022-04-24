@@ -1,6 +1,6 @@
 class Build{
 
-    constructor(id, isSuccess, buildStatus, projectName, committer, commitTimestamp, commitSha, commitMessage) {
+    constructor(id, isSuccess, buildStatus, projectName, committer, commitTimestamp, commitSha, commitMessage, log) {
         this.id = id
         this.isSuccess = isSuccess
         this.buildStatus = buildStatus
@@ -9,6 +9,7 @@ class Build{
         this.commitTimestamp = commitTimestamp
         this.commitSha = commitSha
         this.commitMessage = commitMessage
+        this.log = log
     }
 
 }

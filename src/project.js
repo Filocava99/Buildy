@@ -7,12 +7,13 @@ const settings = require("./settings")
 
 class Project {
 
-    constructor(projectName, repository, mainBranch, latestCommitSha, builds) {
+    constructor(projectName, repository, mainBranch, latestCommitSha, builds, lastSuccessfulBuild) {
         this.projectName = projectName
         this.repository = repository
         this.mainBranch = mainBranch
         this.latestCommitSha = latestCommitSha
         this.builds = builds
+        this.lastSucessfulBuild = lastSuccessfulBuild
     }
 
     toJSON() {
@@ -20,11 +21,12 @@ class Project {
             name: this.projectName,
             repository: {
                 name: this.repository.name,
-                owner: this.repository.owner
+                owner: this.repository.owner,
             },
             mainBranch: this.mainBranch,
             latestCommitSha: this.latestCommitSha,
-            builds: this.builds
+            builds: this.builds,
+            lastSuccessfulBuild: this.lastSuccessfulBuild
         }
     }
 
@@ -37,16 +39,14 @@ class Project {
 
     async build(latestCommit) {
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
-        let log = ""
         return new Promise((resolve, reject) => {
             let processPromise = spawn(gradleBuildScript, [this.repository.name])
-            processPromise.childProcess.stdout.on('data', function (data) {
-                log += data
-                console.log(data)
+            processPromise.childProcess.stdout.on("data", function(data) {
+                console.log(data.toString());
             });
             processPromise.then((result) => {
-                let isSuccess = result.stderr === undefined;
-                resolve(this.createBuild(latestCommit, isSuccess))
+                let isSuccess = result.code === 0;
+                resolve(this.createBuild(latestCommit, isSuccess, "Empty log"))
             }, (error) => {
                 console.log(error)
                 resolve(this.createBuild(latestCommit, false))
@@ -57,15 +57,15 @@ class Project {
         })
     }
 
-    async createBuild(latestCommit, isSuccess) {
+    async createBuild(latestCommit, isSuccess, log) {
         let {getCommitterFromCommit, getShaFromCommit, getMessageFromCommit} = require("./github")
         let committer = getCommitterFromCommit(latestCommit)
         let sha = getShaFromCommit(latestCommit)
         let message = getMessageFromCommit(latestCommit)
         let buildStatus = settings.buildStatus[isSuccess]
         let buildId = this.getLatestBuild() == null ? 1 : this.getLatestBuild().id + 1
-        console.log(buildId)
-        return new Build(buildId, isSuccess, buildStatus, this.projectName, committer.name, committer.date, sha, message)
+        if(isSuccess) this.lastSucessfulBuild = buildId
+        return new Build(buildId, isSuccess, buildStatus, this.projectName, committer.name, committer.date, sha, message, log)
     }
 
     getLatestBuild() {
@@ -79,17 +79,20 @@ class Project {
             allFilesPaths.match(/\.jar$/) !== null)[0]
         let buildPath = buildFolder + buildFile
         let newBuildFileName = buildFile.split(".")
+        let logFileName = `${newBuildFileName[0]}-${build.id}.txt`
         newBuildFileName = `${newBuildFileName[0]}-${build.id}.${newBuildFileName[1]}`
         build.fileName = newBuildFileName
+        build.logFileName = logFileName
         this.builds.push(build)
         await fs.promises.mkdir(`builds/${this.projectName}/`, {recursive: true})
         await fs.promises.rename(buildPath, `builds/${this.projectName}/${newBuildFileName}`)
+        await fs.promises.writeFile(`builds/${this.projectName}/${logFileName}`, build.log, "utf-8")
         return fs.promises.rm(`projects/`, {recursive: true, force: true})
     }
 
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
-        return spawn(scriptPath, [this.repository.name, build.fileName])
+        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.TOKEN])
     }
 
 }

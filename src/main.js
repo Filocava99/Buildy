@@ -38,7 +38,7 @@ async function compileSass(){
 
 async function commitStaticFiles(){
     let scriptPath = path.resolve(`src/commit_static_files.sh`)
-    return spawn(scriptPath)
+    return spawn(scriptPath, [process.env.TOKEN])
 }
 
 module.exports = {
