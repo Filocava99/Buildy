@@ -3,7 +3,9 @@
 
 name: Node.js CI
 
+
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0/10 * * * *' 
 
@@ -20,10 +22,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      env: 
+        TOKEN: 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
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: sudo apt install -y git
     - run: npm install -g sass
     - run: npm ci
-    - run: npm run build --if-present
+    - run: TOKEN=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 npm run start
