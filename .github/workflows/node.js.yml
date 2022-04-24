@@ -29,9 +29,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: sudo apt install -y git
+    - run: sudo apt install -y openjdk-17-jdk
     - run: npm install -g sass
     - run: sudo chmod -R a+rwx src/gradle_build.sh
     - run: sudo chmod -R a+rwx src/commit_build.sh
     - run: sudo chmod -R a+rwx src/commit_static_files.sh
     - run: npm ci
-    - run: MYTOKEN=${{secrets.MYTOKEN}} npm run start
+    - run: MYTOKEN=${{secrets.MYTOKEN}} sudo npm run start
