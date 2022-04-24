@@ -22,11 +22,11 @@ async function main(){
             console.log(fs.readdirSync("projects/").toString())
             console.log(`Building project ${proj.projectName}`)
             let build = await proj.build(latestCommit)
-            console.log(`Saving build ${build.id} for project ${this.projectName}`)
+            console.log(`Saving build ${build.id} for project ${proj.projectName}`)
             await proj.saveBuild(build)
             console.log(`Generating page for project ${proj.projectName}`)
             await handlebar.generatePage(proj)
-            console.log(`Pushing build ${build.id} for project ${this.projectName}`)
+            console.log(`Pushing build ${build.id} for project ${proj.projectName}`)
             await proj.commitBuild(build)
         }
     }
