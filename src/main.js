@@ -19,6 +19,7 @@ async function main(){
             await proj.repository.getInformation()
             console.log(`Cloning  project ${proj.projectName}`)
             await proj.clone()
+            console.log(fs.readdirSync("projects/").toString())
             console.log(`Building project ${proj.projectName}`)
             let build = await proj.build(latestCommit)
             console.log(`Saving build ${build.id} for project ${this.projectName}`)
@@ -35,6 +36,7 @@ async function main(){
     await compileSass()
     console.log("Pushing updated static files")
     await commitStaticFiles()
+    process.exit(0)
 }
 
 async function compileSass(){
