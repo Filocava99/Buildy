@@ -5,6 +5,7 @@ name: Node.js CI
 
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0/10 * * * *' 
 
@@ -27,7 +28,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: apt install -y git
+    - run: sudo apt install -y git
     - run: npm install -g sass
     - run: npm ci
     - run: npm run start
