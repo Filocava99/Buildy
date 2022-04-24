@@ -3,6 +3,7 @@
 
 name: Node.js CI
 
+
 on:
   schedule:
     - cron: '0/10 * * * *' 
@@ -20,6 +21,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
+      env: 
+        TOKEN: ${{ secrets.TOKEN }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
