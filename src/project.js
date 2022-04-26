@@ -38,6 +38,7 @@ class Project {
     }
 
     async build(latestCommit) {
+        await fs.promises.mkdir(`projects/${this.repository.name}/build/libs`, {recursive: true})
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
             let processPromise = spawn(gradleBuildScript, [this.repository.name])
