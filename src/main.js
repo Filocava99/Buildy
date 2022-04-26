@@ -56,8 +56,8 @@ async function commitStaticFiles(){
 }
 
 async function setGitIdentity(){
-    await spawn("git", ["config", "user.email", "\"filippo.cavallari99@gmail.com\""])
-    return spawn("git", ["config", "user.name", "\"Build\""])
+    await spawn("git", ["config", "--global", "user.email", "\"filippo.cavallari99@gmail.com\""])
+    return spawn("git", ["config", "--global", "user.name", "\"Build\""])
 }
 
 module.exports = {

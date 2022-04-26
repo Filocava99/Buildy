@@ -37,4 +37,4 @@ jobs:
     - run: sudo chmod -R a+rwx src/commit_build.sh
     - run: sudo chmod -R a+rwx src/commit_static_files.sh
     - run: npm ci
-    - run: sudo MYTOKEN=${{secrets.MYTOKEN}} npm run start
+    - run: MYTOKEN=${{secrets.MYTOKEN}} npm run start
