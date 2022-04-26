@@ -41,7 +41,7 @@ class Project {
         await fs.promises.chmod(`projects/${this.repository.name}/gradlew`, 0o777)
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
-            let processPromise = spawn(gradleBuildScript, [this.repository.name])
+            let processPromise = spawn(gradleBuildScript, [this.repository.name], {stdio: "inherit"})
             let childProcess = processPromise.childProcess
             processPromise.then((result) => {
                 console.log("INIT DEBUG")
