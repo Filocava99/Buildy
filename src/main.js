@@ -51,7 +51,7 @@ async function compileSass(){
 
 async function commitStaticFiles(){
     let scriptPath = path.resolve(`src/commit_static_files.sh`)
-    return spawn(scriptPath, [process.env.MYTOKEN])
+    return spawn(scriptPath, [process.env.MYTOKEN], { stdio: 'inherit' })
 }
 
 module.exports = {

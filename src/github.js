@@ -38,9 +38,7 @@ class Repository {
 }
 
 function cloneProject(project){
-    let destPath = `${__dirname}/../projects/${project.repository.name}`
-    console.log("Dest path -----> " + destPath)
-    return spawn("git", ["clone", "-b", project.mainBranch, project.repository.cloneUrl, destPath])
+    return spawn("git", ["clone", "-b", project.mainBranch, project.repository.cloneUrl, `projects/${project.repository.name}`], { stdio: 'inherit' })
 }
 
 async function requestToGithub(endpoint, config) {

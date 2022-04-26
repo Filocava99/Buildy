@@ -39,8 +39,8 @@ class Project {
     }
 
     async build(latestCommit) {
-        await fs.promises.mkdir(`projects/${this.repository.name}/build/libs`, {recursive: true})
-        await chmodr("/projects", 0o777)
+        //await fs.promises.mkdir(`projects/${this.repository.name}/build/libs`, {recursive: true})
+        //await chmodr("/projects", 0o777)
         await fs.promises.chmod(`projects/${this.repository.name}/gradlew`, 0o777)
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
@@ -93,7 +93,7 @@ class Project {
 
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
-        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN])
+        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], { stdio: 'inherit' })
     }
 
 }
