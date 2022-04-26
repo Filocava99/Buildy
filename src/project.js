@@ -43,7 +43,7 @@ class Project {
         await chmodr("/projects", 0o777)
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
-            let processPromise = spawn(gradleBuildScript, [this.repository.name])
+            let processPromise = spawn(gradleBuildScript, [this.repository.name], { stdio: 'inherit' })
             processPromise.childProcess.stdout.on("data", function(data) {
                 console.log(data.toString());
             });
