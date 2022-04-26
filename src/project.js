@@ -4,7 +4,6 @@ const fs = require("fs")
 const github = require("./github")
 const Build = require("./build")
 const settings = require("./settings")
-const chmodr = require("./chmodr-promise")
 
 class Project {
 
@@ -39,13 +38,16 @@ class Project {
     }
 
     async build(latestCommit) {
-        //await fs.promises.mkdir(`projects/${this.repository.name}/build/libs`, {recursive: true})
-        //await chmodr("/projects", 0o777)
         await fs.promises.chmod(`projects/${this.repository.name}/gradlew`, 0o777)
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
-            let processPromise = spawn(gradleBuildScript, [this.repository.name], { stdio: 'inherit' })
+            let processPromise = spawn(gradleBuildScript, [this.repository.name])
+            let childProcess = processPromise.childProcess
             processPromise.then((result) => {
+                console.log(result.stdout)
+                console.log(result.output)
+                console.log(childProcess.output)
+                console.log(result.stdio)
                 let isSuccess = result.code === 0;
                 resolve(this.createBuild(latestCommit, isSuccess, "Empty log"))
             }, (error) => {

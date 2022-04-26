@@ -14,13 +14,11 @@ async function main(){
         console.log(`Retrieving last commit for project ${proj.projectName}`)
         let latestCommit = await getLatestCommit(proj)
         let sha = latestCommit.sha
-        console.log(sha !== proj.latestCommitSha)
         if(sha !== proj.latestCommitSha){
             console.log(`Retrieving repository data for project ${proj.projectName}`)
             await proj.repository.getInformation()
             console.log(`Cloning  project ${proj.projectName}`)
             await proj.clone()
-            console.log(fs.readdirSync("projects/").toString())
             console.log(`Building project ${proj.projectName}`)
             let build = await proj.build(latestCommit)
             console.log(`Saving build ${build.id} for project ${proj.projectName}`)
