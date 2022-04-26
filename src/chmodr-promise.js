@@ -1,7 +1,7 @@
 const chmodr = require("chmodr");
 
 async function chmod(path, mode) {
-    return new Promise<*>((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         chmodr(path, mode, () => {
             resolve()
         })
