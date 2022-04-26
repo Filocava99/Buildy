@@ -9,6 +9,7 @@ const {spawn} = require("child-process-promise");
 async function main(){
     let projectsJson = await fs.promises.readFile(settings.projectsPath, settings.projectsEncoding)
     let projects = await parseProjectArray(projectsJson)
+    await setGitIdentity()
     for (const proj of projects) {
         console.log(`Retrieving last commit for project ${proj.projectName}`)
         let latestCommit = await getLatestCommit(proj)
@@ -52,6 +53,11 @@ async function compileSass(){
 async function commitStaticFiles(){
     let scriptPath = path.resolve(`src/commit_static_files.sh`)
     return spawn(scriptPath, [process.env.MYTOKEN], { stdio: 'inherit' })
+}
+
+async function setGitIdentity(){
+    await spawn("git", ["config", "user.email", "\"filippo.cavallari99@gmail.com\""])
+    return spawn("git", ["config", "user.name", "\"Build\""])
 }
 
 module.exports = {
