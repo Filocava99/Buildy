@@ -1,3 +1,5 @@
+git config --global user.email "filippo.cavallari99@gmail.com"
+git config --global user.name "Buildy"
 git clone "https://${1}@github.com/Filocava99/Buildy.git" Buildy
 rm "Buildy/projects.json"
 cp "projects.json" "Buildy/projects.json"
