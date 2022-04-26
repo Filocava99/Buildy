@@ -44,10 +44,12 @@ class Project {
             let processPromise = spawn(gradleBuildScript, [this.repository.name])
             let childProcess = processPromise.childProcess
             processPromise.then((result) => {
+                console.log("INIT DEBUG")
                 console.log(result.stdout)
                 console.log(result.output)
                 console.log(childProcess.output)
                 console.log(result.stdio)
+                console.log("END DEBUG")
                 let isSuccess = result.code === 0;
                 resolve(this.createBuild(latestCommit, isSuccess, "Empty log"))
             }, (error) => {
