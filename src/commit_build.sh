@@ -1,5 +1,5 @@
-git config --global user.email "filippo.cavallari99@gmail.com"
-git config --global user.name "Buildy"
+git config user.email "filippo.cavallari99@gmail.com"
+git config user.name "Buildy"
 git clone "https://${4}@github.com/Filocava99/Buildy.git" Buildy
 mkdir -p "Buildy/builds/${1}"
 mv "builds/${1}/${2}" "Buildy/builds/${1}/${2}"
