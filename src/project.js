@@ -45,9 +45,6 @@ class Project {
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
             let processPromise = spawn(gradleBuildScript, [this.repository.name], { stdio: 'inherit' })
-            processPromise.childProcess.stdout.on("data", function(data) {
-                console.log(data.toString());
-            });
             processPromise.then((result) => {
                 let isSuccess = result.code === 0;
                 resolve(this.createBuild(latestCommit, isSuccess, "Empty log"))
