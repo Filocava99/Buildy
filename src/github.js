@@ -38,7 +38,9 @@ class Repository {
 }
 
 function cloneProject(project){
-    return spawn("git", ["clone", "-b", project.mainBranch, project.repository.cloneUrl, `projects/${project.repository.name}`])
+    let destPath = `${__dirname}/../projects/${project.repository.name}`
+    console.log("Dest path -----> " + destPath)
+    return spawn("git", ["clone", "-b", project.mainBranch, project.repository.cloneUrl, destPath])
 }
 
 async function requestToGithub(endpoint, config) {
@@ -66,41 +68,6 @@ function getCommitterFromCommit(commit){
 
 function getMessageFromCommit(commit){
     return commit.commit.message;
-}
-
-function test() {
-    // requestToGithub("/repos/filocava99/KotlinLib/commits", {
-    //     params: {
-    //         per_page: 1,
-    //         sha: 'master'
-    //     }
-    // }).then(function (response) {
-    //     console.log(response.data[0].sha)
-    // })
-    /*
-    let repo = new Repository("Fortress", "filocava99")
-    let project = new Project("Fortress", "filocava99", "master")
-    project.repository.getInformation().then(()=>{
-        cloneProject(project).then(()=>buildProject(project)).then(()=>console.log("Build successful"))
-    })
-    fs.writeFileSync('./projects.json', JSON.stringify([project]), 'utf8')*/
-    let string = fs.readFileSync("views/project.hbs", "utf8")
-    //console.log(string)
-    hbs.registerHelper('isEven', function (value) {
-        return value%2===0;
-    });
-    hbs.registerHelper('isLatestBuild', function (latestBuildId, buildId) {
-        return latestBuildId === buildId;
-    });
-    let builds = [
-        new Build(1, true, "Success", "MyCoolProject", "filocava99", "2022-03-08 (15:03:30)", "348576", "Add cool stuff to the project"),
-        new Build(2, false, "Failure", "MyCoolProject", "filocava99", "2022-03-08 (15:03:30)", "348576", "Add cool stuff to the project")
-    ]
-
-    let template = hbs.compile(string)
-    //console.log(template)
-    let result = template({builds: builds, latestBuildId: 2})
-    fs.writeFileSync("public/projects_auto.html", result)
 }
 
 module.exports = {
