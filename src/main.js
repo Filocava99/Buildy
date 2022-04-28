@@ -41,11 +41,11 @@ async function main(){
 async function compileSass(){
     let sass = require("./node-sass-promise");
     let result = await sass.render({
-        file:"public/stylesheets/style.sass",
+        file:"public/stylesheets/projects.sass",
         indentedSyntax: true,
         outputStyle : 'expanded'
     })
-    return fs.promises.writeFile("public/stylesheets/style.css", result.css.toString(), "utf-8")
+    return fs.promises.writeFile("public/stylesheets/projects.css", result.css.toString(), "utf-8")
 }
 
 async function commitStaticFiles(){

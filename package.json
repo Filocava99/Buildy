@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "axios": "^0.26.0",
+    "badge-maker": "^3.3.1",
     "child-process-promise": "^2.2.1",
     "chmodr": "^1.2.0",
     "cookie-parser": "~1.4.4",
