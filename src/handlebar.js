@@ -20,20 +20,7 @@ async function generatePage(proj){
     let string = fs.readFileSync("views/project.hbs", "utf8")
     let template = hbs.compile(string)
     let result = template({proj: proj, builds: [...proj.builds].reverse(), latestBuildId: proj.getLatestBuild().id})
-    await createBadge(proj)
     return fs.promises.writeFile(`builds/${proj.projectName}/${proj.projectName}.html`, result)
-}
-
-async function createBadge(proj){
-    const { makeBadge } = require('badge-maker')
-    const lastBuild = proj.getLatestBuild()
-    const format = {
-        label: 'build',
-        message: lastBuild.isSuccess ? 'passed' : 'failed',
-        color: lastBuild.isSuccess ? 'green' : 'red',
-    }
-    const svg = makeBadge(format)
-    return fs.promises.writeFile(`builds/${this.projectName}/${this.projectName}-build.svg`, svg, 'utf-8')
 }
 
 module.exports = {
