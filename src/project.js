@@ -100,7 +100,9 @@ class Project {
         const format = {
             label: 'build',
             message: build.isSuccess ? 'passed' : 'failed',
-            color: build.isSuccess ? 'green' : 'red',
+            color: build.isSuccess ? 'success' : 'critical',
+            style: 'for-the-badge',
+            logo: 'Gradle'
         }
         const svg = makeBadge(format)
         return fs.promises.writeFile(`builds/${this.projectName}/${this.projectName}-build.svg`, svg, 'utf-8')
