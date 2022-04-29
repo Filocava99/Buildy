@@ -87,29 +87,16 @@ class Project {
         let splintedBuildFileName = buildFile.split(".")
         build.fileName = `${splintedBuildFileName[0]}-${build.id}.${splintedBuildFileName[1]}`
         build.logFileName = `${splintedBuildFileName[0]}-${build.id}.txt`
-        build.badgeFileName = `${splintedBuildFileName[0]}-${build.id}.svg`
         this.builds.push(build)
         await fs.promises.mkdir(`builds/${this.projectName}/`, {recursive: true})
         await fs.promises.rename(buildPath, `builds/${this.projectName}/${splintedBuildFileName}`)
-        await fs.promises.writeFile(`builds/${this.projectName}/${logFileName}`, build.log, "utf-8")
-        await this.createBadge(build)
+        await fs.promises.writeFile(`builds/${this.projectName}/${build.logFileName}`, build.log, "utf-8")
         return fs.promises.rm(`projects/`, {recursive: true, force: true})
-    }
-
-    async createBadge(build){
-        const { makeBadge } = require('badge-maker')
-        const format = {
-            label: 'build',
-            message: build.isSuccess ? 'passed' : 'failed',
-            color: build.isSuccess ? 'green' : 'red',
-        }
-        const svg = makeBadge(format)
-        return fs.promises.writeFile(`builds/${this.projectName}/${build.badgeFileName}`, svg, 'utf-8')
     }
 
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
-        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, build.badgeFileName, process.env.MYTOKEN], { stdio: 'inherit' })
+        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], { stdio: 'inherit' })
     }
 
 }
