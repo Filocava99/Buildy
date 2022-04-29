@@ -21,6 +21,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '17'
     - name: Use Node.js ${{ matrix.node-version }}
       env: 
         MYTOKEN: ${{secrets.MYTOKEN}}
@@ -31,7 +35,7 @@ jobs:
     - run: sudo apt install -y git
     - run: git config --global user.email "filippo.cavallari99@gmail.com"
     - run: git config --global user.name "Buildy"
-    - run: sudo apt install -y openjdk-17-jdk
+   # - run: sudo apt install -y openjdk-17-jdk
     - run: npm install -g sass
     - run: sudo chmod -R a+rwx src/gradle_build.sh
     - run: sudo chmod -R a+rwx src/commit_build.sh
