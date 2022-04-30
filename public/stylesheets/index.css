@@ -10,7 +10,7 @@
 }
 
 html {
-  font-family: "Noto Sans", serif;
+  font-family: 'Noto Sans', serif;
   color: white;
   height: 95%;
   width: 98%;
@@ -84,5 +84,3 @@ a:hover {
 a, a:visited {
   color: white;
 }
-
-/*# sourceMappingURL=index.css.map */
