@@ -5,6 +5,8 @@ const github = require("./github")
 const Build = require("./build")
 const settings = require("./settings")
 const {makeBadge} = require("badge-maker");
+const exec = require('child-process-promise').exec;
+const child_process= require('child_process').spawn
 
 class Project {
 
@@ -42,25 +44,17 @@ class Project {
         await fs.promises.chmod(`projects/${this.repository.name}/gradlew`, 0o777)
         let gradleBuildScript = path.resolve(`src/gradle_build.sh`)
         return new Promise((resolve, reject) => {
-            let processPromise = spawn(gradleBuildScript, [this.repository.name], {stdio: "inherit"})
-            let childProcess = processPromise.childProcess
-            processPromise.then((result) => {
-                // console.log("INIT DEBUG")
-                // console.log(result.stdout)
-                // console.log(result.output)
-                // console.log(childProcess.output)
-                // console.log(result.stdio)
-                // console.log("END DEBUG")
-                let isSuccess = result.code === 0;
-                console.log(result)
-                resolve(this.createBuild(latestCommit, isSuccess, "Empty log"))
-            }, (error) => {
-                console.log(error)
-                resolve(this.createBuild(latestCommit, false, "Empty log"))
-            }).catch((error) => {
-                console.log(error)
-                resolve(this.createBuild(latestCommit, false, "Empty log"))
-            })
+            let log= ""
+            let child = child_process('bash', [gradleBuildScript, this.repository.name], {shell: true})
+            child.stdout.on('data', (data) => log += data)
+            child.stderr.on('data', (data) => log += data);
+            child.on('close', (code) => {
+                if(code === 0){
+                    resolve(this.createBuild(latestCommit, true, log))
+                }else{
+                    resolve(this.createBuild(latestCommit, false, log))
+                }
+            });
         })
     }
 

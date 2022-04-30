@@ -32,7 +32,7 @@ async function generateIndex(projects){
             let author = {name: authorName, projects: [proj]}
             authors.push(author)
         }else{
-            filterResult[0].projects.push(proj)
+            filterResult.projects.push(proj)
         }
     }
     let string = fs.readFileSync("views/index.hbs", "utf8")
