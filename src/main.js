@@ -5,6 +5,7 @@ const settings = require("./settings")
 const {saveProjectArray, parseProjectArray} = require("./project");
 const path = require("path");
 const {spawn} = require("child-process-promise");
+const sass = require("./node-sass-promise");
 
 async function main(){
     let projectsJson = await fs.promises.readFile(settings.projectsPath, settings.projectsEncoding)
@@ -14,9 +15,9 @@ async function main(){
         console.log(`Retrieving last commit for project ${proj.projectName}`)
         let latestCommit = await getLatestCommit(proj)
         let sha = latestCommit.sha
+        console.log(`Retrieving repository data for project ${proj.projectName}`)
+        await proj.repository.getInformation()
         if(sha !== proj.latestCommitSha){
-            console.log(`Retrieving repository data for project ${proj.projectName}`)
-            await proj.repository.getInformation()
             console.log(`Cloning  project ${proj.projectName}`)
             await proj.clone()
             console.log(`Building project ${proj.projectName}`)
@@ -24,7 +25,7 @@ async function main(){
             console.log(`Saving build ${build.id} for project ${proj.projectName}`)
             await proj.saveBuild(build)
             console.log(`Generating page for project ${proj.projectName}`)
-            await handlebar.generatePage(proj)
+            await handlebar.generateProjectPage(proj)
             console.log(`Pushing build ${build.id} for project ${proj.projectName}`)
             await proj.commitBuild(build)
         }
@@ -33,6 +34,8 @@ async function main(){
     await saveProjectArray(projects, settings.projectsPath, settings.projectsEncoding)
     console.log("Compiling sass")
     await compileSass()
+    console.log("Generating new index page")
+    await handlebar.generateIndex(projects)
     console.log("Pushing updated static files")
     await commitStaticFiles()
     process.exit(0)
@@ -45,7 +48,13 @@ async function compileSass(){
         indentedSyntax: true,
         outputStyle : 'expanded'
     })
-    return fs.promises.writeFile("public/stylesheets/projects.css", result.css.toString(), "utf-8")
+    await fs.promises.writeFile("public/stylesheets/projects.css", result.css.toString(), "utf-8")
+    result = await sass.render({
+        file:"public/stylesheets/index.sass",
+        indentedSyntax: true,
+        outputStyle : 'expanded'
+    })
+    return fs.promises.writeFile("public/stylesheets/index.css", result.css.toString(), "utf-8")
 }
 
 async function commitStaticFiles(){
