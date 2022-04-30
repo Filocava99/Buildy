@@ -26,7 +26,7 @@ class Repository {
             this.cloneUrl = data.clone_url
             this.stargazers = data.stargazers_count
             this.language = data.language
-            this.license = data.license.name
+            this.license = data.license !== null ? data.license.name : "NO LICENSE"
             this.updatedAt = data.updated_at
             return requestToGithub(`/repos/${this.owner}/${this.name}/branches`)
         }).then((res) => {

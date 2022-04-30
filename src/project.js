@@ -45,20 +45,21 @@ class Project {
             let processPromise = spawn(gradleBuildScript, [this.repository.name], {stdio: "inherit"})
             let childProcess = processPromise.childProcess
             processPromise.then((result) => {
-                console.log("INIT DEBUG")
-                console.log(result.stdout)
-                console.log(result.output)
-                console.log(childProcess.output)
-                console.log(result.stdio)
-                console.log("END DEBUG")
+                // console.log("INIT DEBUG")
+                // console.log(result.stdout)
+                // console.log(result.output)
+                // console.log(childProcess.output)
+                // console.log(result.stdio)
+                // console.log("END DEBUG")
                 let isSuccess = result.code === 0;
+                console.log(result)
                 resolve(this.createBuild(latestCommit, isSuccess, "Empty log"))
             }, (error) => {
                 console.log(error)
-                resolve(this.createBuild(latestCommit, false))
+                resolve(this.createBuild(latestCommit, false, "Empty log"))
             }).catch((error) => {
                 console.log(error)
-                resolve(this.createBuild(latestCommit, false))
+                resolve(this.createBuild(latestCommit, false, "Empty log"))
             })
         })
     }
@@ -70,33 +71,40 @@ class Project {
         let message = getMessageFromCommit(latestCommit)
         let buildStatus = settings.buildStatus[isSuccess]
         let buildId = this.getLatestBuild() == null ? 1 : this.getLatestBuild().id + 1
-        if(isSuccess) this.lastSucessfulBuild = buildId
+        if (isSuccess) this.lastSucessfulBuild = buildId
         return new Build(buildId, isSuccess, buildStatus, this.projectName, committer.name, committer.date, sha, message, log)
     }
 
     getLatestBuild() {
-        return this.builds.slice(-1)[0]
+        try {
+            return this.builds.slice(-1)[0]
+        } catch (e) {
+            return null
+        }
     }
 
     async saveBuild(build) {
         this.latestCommitSha = build.commitSha
-        let buildFolder = `projects/${this.repository.name}/build/libs/`
-        let buildFile = (await fs.promises.readdir(buildFolder)).filter((allFilesPaths) =>
-            allFilesPaths.match(/\.jar$/) !== null)[0]
-        let buildPath = buildFolder + buildFile
-        let splintedBuildFileName = buildFile.split(".")
-        build.fileName = `${splintedBuildFileName[0]}-${build.id}.${splintedBuildFileName[1]}`
-        build.logFileName = `${splintedBuildFileName[0]}-${build.id}.txt`
+        build.logFileName = `${this.projectName}-${build.id}.txt`
         this.builds.push(build)
         await fs.promises.mkdir(`builds/${this.projectName}/`, {recursive: true})
-        await fs.promises.rename(buildPath, `builds/${this.projectName}/${splintedBuildFileName}`)
+        if(build.isSuccess){
+            console.log(this.projectName)
+            let buildFolder = `projects/${this.repository.name}/build/libs/`
+            let buildFile = (await fs.promises.readdir(buildFolder)).filter((allFilesPaths) =>
+                allFilesPaths.match(/\.jar$/) !== null)[0]
+            let buildPath = buildFolder + buildFile
+            let splintedBuildFileName = buildFile.split(".")
+            build.fileName = `${splintedBuildFileName[0]}-${build.id}.${splintedBuildFileName[1]}`
+            await fs.promises.rename(buildPath, `builds/${this.projectName}/${splintedBuildFileName}`)
+        }
         await fs.promises.writeFile(`builds/${this.projectName}/${build.logFileName}`, build.log, "utf-8")
         await this.createBadge(build)
         return fs.promises.rm(`projects/`, {recursive: true, force: true})
     }
 
-    async createBadge(build){
-        const { makeBadge } = require('badge-maker')
+    async createBadge(build) {
+        const {makeBadge} = require('badge-maker')
         const format = {
             label: 'build',
             message: build.isSuccess ? 'passed' : 'failed',
@@ -109,7 +117,7 @@ class Project {
 
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
-        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], { stdio: 'inherit' })
+        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit'})
     }
 
 }
