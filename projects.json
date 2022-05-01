@@ -420,7 +420,7 @@
       "owner": "filocava99"
     },
     "mainBranch": "master",
-    "latestCommitSha": "5ead9fa1b13b5be127c8f8a9744499fcae150182",
+    "latestCommitSha": "a7a523d21dc4d67591e9906d3e75e88c71125ed6",
     "builds": [
       {
         "id": 1,
@@ -443,6 +443,29 @@
         "commitSha": "5ead9fa1b13b5be127c8f8a9744499fcae150182",
         "commitMessage": "Update README.md",
         "logFileName": "CubicWorld-2.txt"
+      },
+      {
+        "id": 3,
+        "isSuccess": false,
+        "buildStatus": "Failure",
+        "projectName": "CubicWorld",
+        "committer": "Build",
+        "commitTimestamp": "2022-04-30T16:22:00Z",
+        "commitSha": "7671845d582da716e136fcfe4a7319bb226792df",
+        "commitMessage": "Merge remote-tracking branch 'origin/master'",
+        "logFileName": "CubicWorld-3.txt"
+      },
+      {
+        "id": 4,
+        "isSuccess": true,
+        "buildStatus": "Success",
+        "projectName": "CubicWorld",
+        "committer": "Build",
+        "commitTimestamp": "2022-04-30T16:56:22Z",
+        "commitSha": "a7a523d21dc4d67591e9906d3e75e88c71125ed6",
+        "commitMessage": "Update to java 17",
+        "logFileName": "CubicWorld-4.txt",
+        "fileName": "Tesi-1-4.0-SNAPSHOT"
       }
     ]
   }
