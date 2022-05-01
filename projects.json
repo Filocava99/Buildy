@@ -468,5 +468,15 @@
         "fileName": "Tesi-1-4.0-SNAPSHOT"
       }
     ]
+  },
+  {
+    "name": "PCD-Assignment2",
+    "repository": {
+      "name": "PCD-Assignment2",
+      "owner": "davidedomini"
+    },
+    "mainBranch": "main",
+    "latestCommitSha": "",
+    "builds": []
   }
 ]
