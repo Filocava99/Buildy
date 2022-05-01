@@ -12,6 +12,18 @@ class Build{
         this.log = log
     }
 
+    toJSON() {
+        return {
+            id: this.id,
+            isSuccess: this.isSuccess,
+            buildStatus: this.buildStatus,
+            projectName: this.projectName,
+            committer: this.committer,
+            commitTimestamp: this.commitTimestamp,
+            commitSha: this.commitSha,
+            commitMessage: this.commitMessage
+        }
+    }
 }
 
 module.exports = Build
