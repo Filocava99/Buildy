@@ -1,14 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const http = require('http');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-var app = express();
+const app = express();
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const socketIO = new Server(server);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,16 +18,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
-app.use(sassMiddleware({
-    src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
-    indentedSyntax: true, // true = .sass and false = .scss
-    sourceMap: true
-}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -45,6 +39,11 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-require('./src/main').main()
+const interval = 60 * 10 * 1000; //10 minutes in milliseconds
+setInterval(require('src/main').main(), interval)
+require("src/socketio").registerListeners()
 
-module.exports = app;
+module.exports = {
+    app,
+    socketIO
+};

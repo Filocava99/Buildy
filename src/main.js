@@ -6,10 +6,14 @@ const {saveProjectArray, parseProjectArray} = require("./project");
 const path = require("path");
 const {spawn} = require("child-process-promise");
 const sass = require("./node-sass-promise");
+const socketIO = require('../app').socketIO
+
+let projects = [];
 
 async function main(){
+
     let projectsJson = await fs.promises.readFile(settings.projectsPath, settings.projectsEncoding)
-    let projects = await parseProjectArray(projectsJson)
+    projects = await parseProjectArray(projectsJson)
     await setGitIdentity()
     for (const proj of projects) {
         console.log(`Retrieving last commit for project ${proj.projectName}`)
@@ -68,5 +72,6 @@ async function setGitIdentity(){
 }
 
 module.exports = {
-    main
+    main,
+    projects
 }
