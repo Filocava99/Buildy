@@ -1,0 +1,26 @@
+Downloading https://services.gradle.org/distributions/gradle-7.1-bin.zip
+..........10%...........20%...........30%..........40%...........50%...........60%..........70%...........80%...........90%...........100%
+
+Welcome to Gradle 7.1!
+
+Here are the highlights of this release:
+ - Faster incremental Java compilation
+ - Easier source set configuration in the Kotlin DSL
+
+For more details see https://docs.gradle.org/7.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :compileJava
+> Task :processResources NO-SOURCE
+> Task :classes
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+
+BUILD SUCCESSFUL in 35s
+2 actionable tasks: 2 executed
