@@ -6,7 +6,6 @@ const {saveProjectArray, parseProjectArray} = require("./project");
 const path = require("path");
 const {spawn} = require("child-process-promise");
 const sass = require("./node-sass-promise");
-const socketIO = require('../app').socketIO
 
 let projects = [];
 
@@ -42,7 +41,6 @@ async function main(){
     await handlebar.generateIndex(projects)
     console.log("Pushing updated static files")
     await commitStaticFiles()
-    process.exit(0)
 }
 
 async function compileSass(){
@@ -71,7 +69,11 @@ async function setGitIdentity(){
     return spawn("git", ["config", "--global", "user.name", "\"Build\""])
 }
 
+function getProjects(){
+    return projects
+}
+
 module.exports = {
     main,
-    projects
+    getProjects
 }

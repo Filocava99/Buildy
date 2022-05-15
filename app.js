@@ -7,9 +7,12 @@ const logger = require('morgan');
 
 const app = express();
 const server = http.createServer(app);
-const { Server } = require("socket.io");
-const socketIO = new Server(server);
-
+server.listen(3001)
+const socketIO = require('socket.io')(server, {
+    cors: {
+        origin: 'http://localhost',
+    }
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -40,10 +43,9 @@ app.use(function (err, req, res, next) {
 });
 
 const interval = 60 * 10 * 1000; //10 minutes in milliseconds
-setInterval(require('src/main').main(), interval)
-require("src/socketio").registerListeners()
+const main = require('./src/main').main
+main()
+setInterval(() => main(), interval)
+require("./src/socketio").registerListeners(socketIO)
 
-module.exports = {
-    app,
-    socketIO
-};
+module.exports = app

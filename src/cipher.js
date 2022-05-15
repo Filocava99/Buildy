@@ -30,6 +30,3 @@ module.exports = {
     verifyPassword,
     genRandomString
 }
-
-const { salt, passwordHash } = encryptPassword("cacca")
-console.log(verifyPassword(passwordHash, "cacca", salt))

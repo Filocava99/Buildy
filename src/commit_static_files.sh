@@ -8,7 +8,7 @@ cp "index.html" "Buildy/index.html"
 cd Buildy
 git add projects.json
 git add index.html
-git add public/*
+git add frontend/*
 git commit -m "Update static files"
 git push
 rm -rf ../Buildy

@@ -3,22 +3,23 @@ const router = express.Router();
 const cipher = require("../src/cipher")
 const { MongoClient } = require("mongodb");
 const {verifyPassword} = require("../src/cipher");
-const uri = "mongodb+srv://user:pass@localhost:27017/?maxPoolSize=20&w=majority";
+const uri = "mongodb://root:example@localhost:27017/?maxPoolSize=20&w=majority";
 const client = new MongoClient(uri);
 
 router.post('/register', async function(req, res, next) {
   const email = req.body.email
   const password = req.body.password
+  console.log(req.body)
   try {
     await client.connect();
     const userTable = await client.db('buildy').collection('user');
     const result = await userTable.findOne({email: email})
-    if(result === undefined){
+    if(result === null){
       const {passwordHash, salt} = cipher.encryptPassword(password)
       await userTable.insertOne({email: email, password: passwordHash, salt: salt})
-      res.status(200)
+      res.sendStatus(200)
     }else{
-      res.status(502)
+      res.sendStatus(502)
     }
   } finally {
     await client.close();
