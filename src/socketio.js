@@ -2,9 +2,10 @@ const getProjects = require("./main").getProjects
 
 function registerListeners(socketIO){
     socketIO.on('connection', (socket) => {
-        socket.on('project-page-request', (project) => {
-            let proj = projects.filter(it => it.projectName === project)[0]
-            socketIO.emit('project-page-request', {proj: proj, builds: [...proj.builds].reverse(), latestBuildId: proj.getLatestBuild().id})
+        socket.on('project-page-request', (message) => {
+            let proj = getProjects().filter(it => it.projectName === message.projectName)[0]
+            socketIO.emit('project-page-response', {project: proj, builds: [...proj.builds].reverse(), latestBuildId: proj.builds.slice(-1)[0].id})
+            console.log(proj)
         })
         socket.on('index-page-request', ()=>{
             let authors = []

@@ -2,7 +2,6 @@
 import React, {useState, useEffect} from "react";
 import io from "socket.io-client";
 import Author from "./Author";
-import '../public/stylesheets/index.css'
 
 const ENDPOINT = "127.0.0.1:3001";
 
@@ -23,6 +22,7 @@ export default function App() {
 
     return (
         <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "row"}}>
+            <link type="text/css" rel="stylesheet" href="stylesheets/index.css" />
             <div className="side-column"></div>
             <div className="central-column">
                 {authors}

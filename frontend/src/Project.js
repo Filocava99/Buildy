@@ -4,7 +4,7 @@ export default function Project(project){
             <td>
                 <img className="inverted-img centered-img" alt="repository icon"
                      src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/repo.svg" />&nbsp;
-                    <a href={`https://filocava99.github.io/Buildy/builds/${project.name}/${project.name}.html`}>{project.name}</a>
+                    <a href={`projects/${project.name}`}>{project.name}</a>
             </td>
             <td>
                 <img className="build-badge" alt="build-badge"
