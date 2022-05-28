@@ -22,6 +22,11 @@ function registerListeners(socketIO){
             }
             socketIO.emit('index-page-response', {authors: authors})
         })
+        socket.on('login-request', (message) => {
+            const username = message.username
+            const password = message.password
+
+        })
     });
 }
 

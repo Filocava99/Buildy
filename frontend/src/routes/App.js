@@ -1,7 +1,8 @@
 //import {Outlet, Link} from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import io from "socket.io-client";
-import Author from "./Author";
+import Author from "../components/Author";
+import Header from "../components/Header";
 
 const ENDPOINT = "127.0.0.1:3001";
 
@@ -21,14 +22,17 @@ export default function App() {
     }, []);
 
     return (
-        <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "row"}}>
+        <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "column"}}>
             <link type="text/css" rel="stylesheet" href="stylesheets/index.css" />
-            <div className="side-column"></div>
-            <div className="central-column">
-                {authors}
-                <span className="copyright">© 2022 Filippo Cavallari</span>
+            { Header("/") }
+            <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "row"}}>
+                <div className="side-column"></div>
+                <div className="central-column">
+                    {authors}
+                    <span className="copyright">© 2022 Filippo Cavallari</span>
+                </div>
+                <div className="side-column"></div>
             </div>
-            <div className="side-column"></div>
         </div>
     );
 }

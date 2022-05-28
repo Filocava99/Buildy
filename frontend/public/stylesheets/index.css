@@ -1,4 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700);
+.navbar-item {
+  display: block;
+  float: right;
+}
+
+.navbar-separator {
+  width: 1px;
+  border-right: 2px solid #2b2b2b;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.header {
+  padding: 0.2% 0.5% 0.2% 0.2%;
+  margin-bottom: 1%;
+  background-color: #383838;
+  height: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.header img {
+  height: 100%;
+}
+
 .author-row {
   text-align: center;
   width: 100%;
@@ -13,18 +39,18 @@ html {
   font-family: "Noto Sans", serif;
   color: white;
   height: 95%;
-  width: 98%;
+  width: 100%;
   background-color: #2C3233;
 }
 
 body {
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  margin: 0;
+  padding: 0;
 }
 
 .side-column {
-  width: 28%;
+  width: 30%;
   display: flex;
 }
 

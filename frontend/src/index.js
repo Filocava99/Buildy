@@ -4,7 +4,7 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import App from "./App";
+import App from "./routes/App";
 import ProjectPage from "./routes/ProjectPage";
 
 const root = ReactDOM.createRoot(

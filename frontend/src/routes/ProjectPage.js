@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import io from "socket.io-client";
-import {BuildContent, BuildSidebar} from "../Build";
+import {BuildContent, BuildSidebar} from "../components/Build";
 
 const ENDPOINT = "127.0.0.1:3001";
 
@@ -53,11 +53,6 @@ export default function ProjectPage(){
     return (
         <div style={{width: "100%", height: "100%"}}>
             <link type="text/css" rel="stylesheet" href="../stylesheets/projects.css" />
-            <div className="header">
-                <a href="../../">
-                    <img className="centered-img inverted-img"
-                         src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/arrow-left.svg" alt="bug icon" /></a>
-            </div>
             <div className="page">
                 <div className="sidebar">
                     <span className="sidebar-header">Project Info</span>

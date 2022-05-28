@@ -1,4 +1,5 @@
 const crypto = require("crypto")
+const {createMongoClient} = require("./utils");
 
 function encryptPassword(password){
     const salt = genRandomString(8)
@@ -25,8 +26,22 @@ const sha512 = function(password, salt){
     };
 };
 
+const verifyToken = async function(token, email){
+    const client = await createMongoClient()
+    const db = await client.db("buildy")
+    const collection = db.collection("token")
+    const result = await collection.findOne({"token":token, "email":email})
+    if(result === null){
+        return false
+    }
+    const timestamp = Date.now()
+    const expirationTime = 86400000*7 //7 days
+    return timestamp - result.timestamp < expirationTime
+}
+
 module.exports = {
     encryptPassword,
     verifyPassword,
-    genRandomString
+    genRandomString,
+    verifyToken
 }

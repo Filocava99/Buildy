@@ -39,6 +39,5 @@ jobs:
     - run: npm install -g sass
     - run: sudo chmod -R a+rwx src/gradle_build.sh
     - run: sudo chmod -R a+rwx src/commit_build.sh
-    - run: sudo chmod -R a+rwx src/commit_static_files.sh
     - run: npm ci
     - run: MYTOKEN=${{secrets.MYTOKEN}} npm run start

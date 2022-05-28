@@ -1,0 +1,104 @@
+$dark-color: #4B4B4B2F
+$obfuscate-color: #3838384F
+
+.modal
+  position: absolute
+  margin: auto
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  height: 25%
+  width: 25%
+
+.modal-content
+  display: flex
+  flex-direction: column
+  width: auto
+  height: auto
+  padding: 5%
+  background-color: $dark-color
+  border-radius: 10px
+  z-index: 50
+
+.hidden
+  display: none
+
+.hider
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  height: 100%
+  background-color: $obfuscate-color
+  z-index: 2
+
+.close-button
+  margin-left: 95%
+  margin-top: -3%
+  display: block
+  width: 5%
+  height: 5%
+  z-index: inherit
+
+/* Login form */
+
+.login-form
+  display: flex
+  flex-direction: column
+  height: 100%
+  width: 100%
+  z-index: inherit
+
+.login-form input, label
+  display: block
+  width: auto
+  margin-bottom: 5%
+
+.login-form input
+  border-radius: 5px
+  height: auto
+  min-height: 20px
+  border: none
+
+.login-form input:focus
+  border: none
+  box-shadow: none
+
+.login-form button, .register-form button
+  min-height: 20px
+  height: auto
+  border-radius: 5px
+  width: 15%
+  margin: auto
+  border: none
+
+/* Register form */
+
+.register-form
+  display: flex
+  flex-direction: column
+  height: 100%
+  width: 100%
+  z-index: inherit
+
+.register-form input, label
+  display: block
+  width: auto
+  margin-bottom: 5%
+
+.register-form input
+  border-radius: 5px
+  height: auto
+  min-height: 20px
+  border: none
+
+.register-form input:focus
+  border: none
+  box-shadow: none
+
+
+.inverted-img
+  filter: invert(1) brightness(.95)
