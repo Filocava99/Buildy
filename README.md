@@ -1,7 +1,7 @@
 <div style="text-align: center;">
 
 ![Build status](https://img.shields.io/github/workflow/status/filocava99/Buildy/Build/master?style=flat-square)
-![Github license](https://img.shields.io/github/license/filocava99/Buildy?style=flat-square)
+![Github license](https://img.shields.io/github/license/filocava99/buildy?style=flat-square)
 ![Github stars](https://img.shields.io/github/stars/filocava99/Buildy?style=flat-square)
 ![Github forks](https://img.shields.io/github/forks/filocava99/Buildy?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues-raw/filocava99/Buildy?style=flat-square)
