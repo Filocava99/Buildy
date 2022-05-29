@@ -1,4 +1,15 @@
-Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+Downloading https://services.gradle.org/distributions/gradle-7.1-bin.zip
+..........10%...........20%...........30%..........40%...........50%...........60%..........70%...........80%...........90%...........100%
+
+Welcome to Gradle 7.1!
+
+Here are the highlights of this release:
+ - Faster incremental Java compilation
+ - Easier source set configuration in the Kotlin DSL
+
+For more details see https://docs.gradle.org/7.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
 
 FAILURE: Build failed with an exception.
 
@@ -228,4 +239,4 @@ Run with --stacktrace option to get the stack trace. Run with --info or --debug 
 
 * Get more help at https://help.gradle.org
 
-BUILD FAILED in 3s
+BUILD FAILED in 26s
