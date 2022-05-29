@@ -10,6 +10,8 @@ class Build{
         this.commitSha = commitSha
         this.commitMessage = commitMessage
         this.log = log
+        this.logFileName = ""
+        this.fileName = ""
     }
 
     toJSON() {
@@ -21,7 +23,9 @@ class Build{
             committer: this.committer,
             commitTimestamp: this.commitTimestamp,
             commitSha: this.commitSha,
-            commitMessage: this.commitMessage
+            commitMessage: this.commitMessage,
+            fileName: this.fileName,
+            logFileName: this.logFileName,
         }
     }
 }

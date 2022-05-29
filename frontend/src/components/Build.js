@@ -44,7 +44,7 @@ export function BuildContent(build, proj, selectedBuild) {
                         </td>
                         <td>Download (.jar)</td>
                         <td><a
-                            href={`https://github.com/Filocava99/Buildy/tree/master/builds/${proj.projectName}/${build.fileName}`}>{build.fileName}</a>
+                            href={`https://github.com/Filocava99/Buildy/tree/master/builds/${proj.name}/${build.fileName}`}>{build.fileName}</a>
                         </td>
                     </tr>
                 ) : (
@@ -55,7 +55,7 @@ export function BuildContent(build, proj, selectedBuild) {
                              src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/svg/file.svg"/></td>
                     <td>Build Log</td>
                     <td><a
-                        href={`https://github.com/Filocava99/Buildy/tree/master/builds/${proj.projectName}/${build.logFileName}`}>{build.logFileName}</a>
+                        href={`https://github.com/Filocava99/Buildy/tree/master/builds/${proj.name}/${build.logFileName}`}>{build.logFileName}</a>
                     </td>
                 </tr>
                 <tr className="build-info-row">

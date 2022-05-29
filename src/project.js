@@ -47,7 +47,6 @@ class Project {
             child.stdout.on('data', (data) => log += data)
             child.stderr.on('data', (data) => log += data);
             child.on('close', (code) => {
-                console.log(log)
                 if (code === 0) {
                     resolve(this.createBuild(latestCommit, true, log))
                 } else {
@@ -112,7 +111,7 @@ class Project {
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
         return new Promise((resolve) => {
-            let child = child_process(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {shell: true})
+            let child = child_process("bash", [scriptPath, this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit'})
             child.on('close', (code) => {
                 if (code === 0) {
                     resolve(true)
@@ -140,17 +139,11 @@ function reviver(key, value) {
 }
 
 async function getProjectsFromDb(){
-    console.log("ok1")
     const client = await createMongoClient()
-    console.log("ok2")
     const db = await client.db("buildy")
-    console.log("ok3")
     const collection = await db.collection("project")
-    console.log("ok4")
     const incompleteProjects = await collection.find().toArray()
-    console.log("ok5")
     await client.close()
-    console.log("ok6")
     return parseProjectArray(incompleteProjects)
 }
 
@@ -165,10 +158,11 @@ async function parseProjectArray(parsedProjects) {
 async function saveProjectArray(projects) {
     const client = await createMongoClient()
     const db = client.db("buildy")
-    const collection = await db.collection('projects')
+    const collection = await db.collection('project')
     return new Promise(async (resolve) => {
-        for (const project of (await trimProjects(await filterModifiedProjects(projects)))) {
-            await collection.updateOne({name: project.name}, {$set:project}, {upsert: true})
+        let trimmedProjects = await trimProjects(await filterModifiedProjects(projects))
+        for (const project of trimmedProjects) {
+            await collection.replaceOne({name: project.name}, project, {upsert: true})
         }
         await client.close()
         resolve()
@@ -180,7 +174,6 @@ async function addProject(project){
     const db = client.db("buildy")
     const collection = await db.collection('project')
     await collection.insertOne(await trimProjects(project))
-    console.log("added project to db")
     return client.close()
 }
 

@@ -5,7 +5,6 @@ function registerListeners(socketIO){
         socket.on('project-page-request', (message) => {
             let proj = getProjects().filter(it => it.projectName === message.projectName)[0]
             socketIO.emit('project-page-response', {project: proj, builds: [...proj.builds].reverse(), latestBuildId: proj.builds.slice(-1)[0].id})
-            console.log(proj)
         })
         socket.on('index-page-request', ()=>{
             let authors = []
@@ -21,11 +20,6 @@ function registerListeners(socketIO){
                 }
             }
             socketIO.emit('index-page-response', {authors: authors})
-        })
-        socket.on('login-request', (message) => {
-            const username = message.username
-            const password = message.password
-
         })
     });
 }

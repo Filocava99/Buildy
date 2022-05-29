@@ -35,6 +35,7 @@ export default function ProjectPage(){
             })
             setProj(data.project)
             setBuilds(data.builds)
+            console.log(data.builds)
             setSelectedBuild(data.latestBuildId)
             setSBBuilds(sidebarBuildsArray)
             setContentBuilds(contentBuildsArray)

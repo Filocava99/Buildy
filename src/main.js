@@ -6,11 +6,9 @@ let projects = [];
 
 async function main(){
     projects = await getProjectsFromDb()
-    console.log(projects);
     await setGitIdentity()
     for (const project of projects) {
         await analyzeProject(project)
-        console.log("test")
     }
     console.log("Saving projects on db")
     await saveProjectArray(projects)

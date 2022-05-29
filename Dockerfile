@@ -12,6 +12,4 @@ COPY routes/ ./routes
 COPY app.js ./app.js
 COPY bin/ ./bin
 EXPOSE 3000 3001
-ENV MYTOKEN=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
-ENV MONGO_URL=mongodb
 CMD ["npm", "start"]
