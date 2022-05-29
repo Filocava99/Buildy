@@ -20,7 +20,7 @@ The workflow is easy to understand, and it is based on [GitHub Actions](https://
 1. Every 10 minutes an action is triggered which runs the NodeJS component of Buildy;
 2. The NodeJS component is responsible for building the project and deploying it to GitHub pages. For doing so it needs to:
     1. Check every tracked project[^1] to see if there are new commits;
-    2. If there are new commits, it will build clone the project and build it;
+    2. If there are new commits, it will clone the project and then build it;
     3. A html page for the project is generated using Handlebars, as well as a log file and an SVG badge for the build outcome;
     4. The build artifacts, the log file and the html page are committed and pushed to the Buildy repository;
     5. A GitHub action will then update GitHub pages.
