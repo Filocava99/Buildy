@@ -1,3 +1,4 @@
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
 
 FAILURE: Build failed with an exception.
 
@@ -227,4 +228,4 @@ Run with --stacktrace option to get the stack trace. Run with --info or --debug 
 
 * Get more help at https://help.gradle.org
 
-BUILD FAILED in 411ms
+BUILD FAILED in 3s
