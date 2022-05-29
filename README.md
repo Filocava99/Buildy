@@ -15,7 +15,12 @@
 # <center>Buildy</center>
 Buildy is a continuous deployment platform that is hosted on [GitHub pages](https://filocava99.github.io/Buildy). It is a simple, easy to use, and powerful tool for building and deploying your Java projects.
 
-## Workflow
+# Table of contents
+1. [Workflow](#par1)
+2. [Installation instructions](#par2)
+3. [Standalone version](#par3)
+
+## Workflow <a name="par1"></a>
 The workflow is easy to understand, and it is based on [GitHub Actions](https://github.com/features/actions):
 1. Every 10 minutes an action is triggered which runs the NodeJS component of Buildy;
 2. The NodeJS component is responsible for building the project and deploying it to GitHub pages. For doing so it needs to:
@@ -27,11 +32,11 @@ The workflow is easy to understand, and it is based on [GitHub Actions](https://
 
 [^1]: All the tracked projects are listed in the `projects.json` file.
 
-## How to install
+## How to install <a name="par2"></a>
 You can easily install a copy of Buildy by forking the master branch of this repository.  
 After forking the repo you will need to modify the `.github/workflows/node.js.yml` action by modifying the ENV variable REPO_URL to your fork url.  
 Lastly you will need to create a secret called `MYTOKEN` which will contain a GitHub personal access token that Buildy will use to push commits on the fork.
 
-## Standalone version (MERN stack)
+## Standalone version (MERN stack) <a name="par3"></a>
 You can find a standalone version of Buildy that uses the MERN stack (MongoDB, Express, React and NodeJS) in the [standalone-version branch](https://github.com/Filocava99/Buildy/tree/standalone-version).  
 You will find the instructions for installing that version in the `README.md` file.
