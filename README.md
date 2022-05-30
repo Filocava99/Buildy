@@ -63,10 +63,14 @@ All the components of Buildy have been dockerized and can be easily started usin
 ## How to install <a name="par2"></a>
 **Requirements:** [*Docker*, *Docker-compose*]  
 
-You can easily install a copy of Buildy by cloning the repository and running the command `docker-compose up --build -d`.
+You can easily install a copy of Buildy by cloning the repository and running the command `docker-compose up --build -d`.  
 Before running the command, you will need to create a `.env` file with the following variables:
 ```
 MYTOKEN=<your_github_personal_access_token>
-MONGO_URL=mongodb #You can leave that unchanged, unless you modify the MongoDB container's name
+MONGO_IP=mongodb #You can leave that unchanged, unless you modify the MongoDB container's name
+NODE_IP=nodejs #You can leave that unchanged, unless you modify the NodeJS container's name
+REACT_IP=localhost #You can leave that unchanged, unless your react container is on a different IP
+REPO_URL=github.com/Filocava99/Buildy.git #Set your repository URL (used for storing artifacts and log files)
 ```
-You might also want to edit the MongoDB root credentials in the `docker-compose.yml` file.
+You will also want to change the values in `frontend/src/settings.js` to match your environment variables and other preferences.  
+You might also want to edit the MongoDB root credentials in the `docker-compose.yml` file (highly suggested for obvious security reasons).

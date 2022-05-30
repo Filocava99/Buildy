@@ -1,6 +1,7 @@
 import {useRef, useState} from "react";
+import {HTTP_PORT, HTTP_PROTOCOL, NODE_URL} from "../settings";
 
-const ENDPOINT = "http://localhost:3000";
+const ENDPOINT = `${HTTP_PROTOCOL}://${NODE_URL}:${HTTP_PORT}`;
 
 export default function LoginForm(hideModal, setHeaderEmail) {
 

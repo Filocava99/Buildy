@@ -111,7 +111,7 @@ class Project {
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
         return new Promise((resolve) => {
-            let child = child_process("bash", [scriptPath, this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit'})
+            let child = child_process("bash", [scriptPath, this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit', env: {...process.env}})
             child.on('close', (code) => {
                 if (code === 0) {
                     resolve(true)

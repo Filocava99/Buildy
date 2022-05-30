@@ -1,5 +1,6 @@
 import {useRef, useState} from "react";
-const ENDPOINT = "http://localhost:3000";
+import {HTTP_PORT, HTTP_PROTOCOL, NODE_URL} from "../settings";
+const ENDPOINT = `${HTTP_PROTOCOL}://${NODE_URL}:${HTTP_PORT}`;
 
 export default function AddProjectForm(hideModal){
     const [projectName, _setProjectName] = useState("")

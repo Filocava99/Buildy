@@ -11,7 +11,7 @@ const server = http.createServer(app);
 server.listen(3001)
 const socketIO = require('socket.io')(server, {
     cors: {
-        origin: 'http://localhost',
+        origin: `http://${process.env.REACT_IP}`,
     }
 });
 // view engine setup
@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
-    origin: 'http://localhost',
+    origin: `http://${process.env.REACT_IP}`,
     methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
     credentials: true
 }));

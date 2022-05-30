@@ -1,4 +1,4 @@
-git clone "https://${4}@github.com/Filocava99/Buildy.git" Buildy
+git clone "https://${4}@${REPO_URL}" Buildy
 mkdir -p "Buildy/builds/${1}"
 mv "builds/${1}/${2}" "Buildy/builds/${1}/${2}"
 mv "builds/${1}/${3}" "Buildy/builds/${1}/${3}"

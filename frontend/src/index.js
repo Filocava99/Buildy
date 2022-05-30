@@ -10,6 +10,7 @@ import ProjectPage from "./routes/ProjectPage";
 const root = ReactDOM.createRoot(
     document.getElementById("root")
 );
+
 root.render(
     <BrowserRouter>
         <Routes>

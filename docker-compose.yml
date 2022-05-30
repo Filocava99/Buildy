@@ -12,6 +12,15 @@ services:
       - "3001:3001"
     env_file:
       - .env
+  react:
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    links:
+      - nodejs
+    ports:
+      - "80:3000"
   mongodb:
     image: mongo
     restart: always

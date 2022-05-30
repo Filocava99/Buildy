@@ -3,11 +3,12 @@ import React, {useState, useEffect} from "react";
 import io from "socket.io-client";
 import Author from "../components/Author";
 import Header from "../components/Header";
+import {NODE_URL, SOCKET_IO_PORT} from "../settings";
 
-const ENDPOINT = "127.0.0.1:3001";
+const ENDPOINT = `${NODE_URL}:${SOCKET_IO_PORT}`;
 
 export default function App() {
-
+    console.log(process.env.REACT_APP_NODE_IP)
     const [authors, setAuthors] = useState([])
     let authorsArray = []
     useEffect(() => {

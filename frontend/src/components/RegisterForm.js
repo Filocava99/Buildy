@@ -1,6 +1,6 @@
 import {useRef, useState} from "react";
-import {clear} from "@testing-library/user-event/dist/clear";
-const ENDPOINT = "http://localhost:3000";
+import {HTTP_PORT, HTTP_PROTOCOL, NODE_URL} from "../settings";
+const ENDPOINT = `${HTTP_PROTOCOL}://${NODE_URL}:${HTTP_PORT}`;
 
 export default function RegisterForm(hideModal){
     const [email, _setEmail] = useState("")
