@@ -398,6 +398,15 @@ REPO_URL=github.com/Filocava99/Buildy.git #Set your repository URL (used for sto
 Vanno inoltre modificate le variabile in frontend/src/settings.js in modo che combacino con le variabili d'ambiente e le vostre eventuali preferenze.\\
 È altamente raccomandato di modificare le credenziali dell'utente root di MongoDB all'interno del file docker-compose.yml per ovvi motivi di sicurezza.\\
 Una volta avviato, Buildy sarà raggiungibile sulla porta 80 del vostro dispostivo (http://localhost se l'accesso viene effettuato in locale); il backend utilizza la porta 3000 per Express e la porta 3001 per socket.io.\\
+\\
+Per testare l'applicazione si consiglia di aggiungere il seguente progetto Gradle:\\
+\begin{itemize}
+\item ProjectName: Fortress
+\item Owner: filocava99
+\item Repository: Fortress
+\end{itemize}
+Dopo aver aggiunto il progetto aspettare che il pannello si chiuda da solo (potrebbero volerci da alcuni secondi ad un minuto, dipende dalla quantità di tempo richiesta per compilare il progetto).
+
 
 \section{Conclusioni}
 Sono personalmente molto soddisfatto da come ho realizzato Buildy; ho in mente diverse modifiche che effettuerò in futuro, fra cui aggiungere il supporto a progetti Maven. Ho anche realizzato una versione basata interamente su NodeJs hostata tramite GitHub pages che può essere facilmente installa forkando la repository.
