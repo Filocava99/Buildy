@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-
+    
 ![Build status](https://img.shields.io/github/workflow/status/filocava99/Buildy/Build/master?style=flat-square)
 ![Github license](https://img.shields.io/github/license/filocava99/buildy?style=flat-square)
 ![Github stars](https://img.shields.io/github/stars/filocava99/Buildy?style=flat-square)
@@ -11,6 +11,8 @@
 
 </div>
 <!--![(https://img.shields.io/codacy/grade/0f2d702e7c8a4372bf106d96bd693ac8/master)]-->
+
+<a href="https://filocava99.github.io/Buildy/" style="text-align: center; font-size: 24px;">Live version</a>
 
 # <center>Buildy</center>
 
