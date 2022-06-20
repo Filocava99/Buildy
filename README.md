@@ -14,7 +14,7 @@
 
 # <center>Buildy (standalone version)</center>
 
-Buildy (standalone version) is a simple continuous deployment platform, easy to use and yet still a powerful tool, for building and deploying your Java projects.
+Buildy (standalone version) is a simple continuous deployment platform, easy to use and yet still a scalable and powerful tool, for building and deploying your Java projects.
 # Table of contents
 
 1. [Design](#par1)
