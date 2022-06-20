@@ -13,8 +13,8 @@
 <!--![(https://img.shields.io/codacy/grade/0f2d702e7c8a4372bf106d96bd693ac8/master)]-->
 
 <center>
-    
-    [Live version](https://filocava99.github.io/Buildy/)
+
+[Live version](https://filocava99.github.io/Buildy/)
 
 </center>
 
