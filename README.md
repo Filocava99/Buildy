@@ -12,7 +12,7 @@
 </div>
 <!--![(https://img.shields.io/codacy/grade/0f2d702e7c8a4372bf106d96bd693ac8/master)]-->
 
-<a href="https://filocava99.github.io/Buildy/" style="text-align: center; font-size: 24px;">Live version</a>
+<a align="center" href="https://filocava99.github.io/Buildy/" style="text-align: center; font-size: 24px;">Live version</a>
 
 # <center>Buildy</center>
 
