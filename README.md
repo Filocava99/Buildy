@@ -13,6 +13,9 @@
 <!--![(https://img.shields.io/codacy/grade/0f2d702e7c8a4372bf106d96bd693ac8/master)]-->
 
 # <center>Buildy</center>
+
+> Please take a look at the scalable standalone versione based on the MERN stack --> [standalone-branch](https://github.com/Filocava99/Buildy/tree/standalone-version)
+
 Buildy is a continuous deployment platform that is hosted on [GitHub pages](https://filocava99.github.io/Buildy). It is a simple, easy to use, and powerful tool for building and deploying your Java projects.
 
 # Table of contents
