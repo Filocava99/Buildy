@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-
+    
 ![Build status](https://img.shields.io/github/workflow/status/filocava99/Buildy/Build/master?style=flat-square)
 ![Github license](https://img.shields.io/github/license/filocava99/buildy?style=flat-square)
 ![Github stars](https://img.shields.io/github/stars/filocava99/Buildy?style=flat-square)
@@ -12,7 +12,16 @@
 </div>
 <!--![(https://img.shields.io/codacy/grade/0f2d702e7c8a4372bf106d96bd693ac8/master)]-->
 
+<center>
+
+# [Live demo](https://filocava99.github.io/Buildy/)
+
+</center>
+
 # <center>Buildy</center>
+
+> Please take a look at the scalable standalone versione based on the MERN stack --> [standalone-branch](https://github.com/Filocava99/Buildy/tree/standalone-version)
+
 Buildy is a continuous deployment platform that is hosted on [GitHub pages](https://filocava99.github.io/Buildy). It is a simple, easy to use, and powerful tool for building and deploying your Java projects.
 
 # Table of contents
