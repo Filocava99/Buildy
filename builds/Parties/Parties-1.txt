@@ -1,0 +1,38 @@
+Downloading https://services.gradle.org/distributions/gradle-7.2-bin.zip
+.............................................................................................................
+
+Welcome to Gradle 7.2!
+
+Here are the highlights of this release:
+ - Toolchain support for Scala
+ - More cache hits when Java source files have platform-specific line endings
+ - More resilient remote HTTP build cache behavior
+
+For more details see https://docs.gradle.org/7.2/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Task :compileKotlin
+'compileJava' task (current target is 17) and 'compileKotlin' task (current target is 16) jvm target compatibility should be set to the same Java version.
+w: /home/runner/work/Buildy/Buildy/projects/Parties/src/main/kotlin/it/filippocavallari/command/MainCommand.kt: (29, 70): Destructured parameter 'k' is never used
+w: /home/runner/work/Buildy/Buildy/projects/Parties/src/main/kotlin/it/filippocavallari/command/MainCommand.kt: (35, 74): Destructured parameter 'k' is never used
+w: /home/runner/work/Buildy/Buildy/projects/Parties/src/main/kotlin/it/filippocavallari/command/party/PartyJoinCommand.kt: (24, 46): 'getOfflinePlayer(String): OfflinePlayer' is deprecated. Deprecated in Java
+w: /home/runner/work/Buildy/Buildy/projects/Parties/src/main/kotlin/it/filippocavallari/command/party/PartyKickCommand.kt: (17, 41): 'getOfflinePlayer(String): OfflinePlayer' is deprecated. Deprecated in Java
+w: /home/runner/work/Buildy/Buildy/projects/Parties/src/main/kotlin/it/filippocavallari/listener/PlayerListener.kt: (68, 56): No cast needed
+
+> Task :compileJava NO-SOURCE
+> Task :processResources
+> Task :classes
+> Task :inspectClassesForKotlinIC
+> Task :jar
+> Task :assemble
+> Task :compileTestKotlin NO-SOURCE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+
+BUILD SUCCESSFUL in 42s
+4 actionable tasks: 4 executed
