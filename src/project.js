@@ -84,9 +84,8 @@ class Project {
             let buildFile = (await fs.promises.readdir(buildFolder)).filter((allFilesPaths) =>
                 allFilesPaths.match(/\.jar$/) !== null)[0]
             let buildPath = buildFolder + buildFile
-            let splintedBuildFileName = buildFile.split(".")
-            build.fileName = `${splintedBuildFileName[0]}-${build.id}.${splintedBuildFileName[splintedBuildFileName.length - 1]}`
-            await fs.promises.rename(buildPath, `builds/${this.projectName}/${splintedBuildFileName}`)
+            build.fileName = `${this.projectName}-${build.id}.jar`
+            await fs.promises.rename(buildPath, `builds/${this.projectName}/${build.fileName}`)
         }
         await fs.promises.writeFile(`builds/${this.projectName}/${build.logFileName}`, build.log, "utf-8")
         await this.createBadge(build)
