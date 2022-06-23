@@ -34,5 +34,5 @@ w: /home/runner/work/Buildy/Buildy/projects/Parties/src/main/kotlin/it/filippoca
 > Task :check UP-TO-DATE
 > Task :build
 
-BUILD SUCCESSFUL in 41s
+BUILD SUCCESSFUL in 37s
 4 actionable tasks: 4 executed
