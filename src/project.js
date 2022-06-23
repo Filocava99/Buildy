@@ -1,11 +1,8 @@
 const path = require("path");
-const spawn = require('child-process-promise').spawn;
 const fs = require("fs")
 const github = require("./github")
 const Build = require("./build")
 const settings = require("./settings")
-const {makeBadge} = require("badge-maker");
-const exec = require('child-process-promise').exec;
 const child_process= require('child_process').spawn
 
 class Project {
@@ -16,7 +13,7 @@ class Project {
         this.mainBranch = mainBranch
         this.latestCommitSha = latestCommitSha
         this.builds = builds
-        this.lastSucessfulBuild = lastSuccessfulBuild
+        this.lastSuccessfulBuild = lastSuccessfulBuild
     }
 
     toJSON() {
@@ -65,7 +62,7 @@ class Project {
         let message = getMessageFromCommit(latestCommit)
         let buildStatus = settings.buildStatus[isSuccess]
         let buildId = this.getLatestBuild() == null ? 1 : this.getLatestBuild().id + 1
-        if (isSuccess) this.lastSucessfulBuild = buildId
+        if (isSuccess) this.lastSucsessfulBuild = buildId
         return new Build(buildId, isSuccess, buildStatus, this.projectName, committer.name, committer.date, sha, message, log)
     }
 
@@ -83,7 +80,6 @@ class Project {
         this.builds.push(build)
         await fs.promises.mkdir(`builds/${this.projectName}/`, {recursive: true})
         if(build.isSuccess){
-            console.log(this.projectName)
             let buildFolder = `projects/${this.repository.name}/build/libs/`
             let buildFile = (await fs.promises.readdir(buildFolder)).filter((allFilesPaths) =>
                 allFilesPaths.match(/\.jar$/) !== null)[0]
@@ -111,7 +107,16 @@ class Project {
 
     async commitBuild(build) {
         let scriptPath = path.resolve(`src/commit_build.sh`)
-        return spawn(scriptPath, [this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit'})
+        return new Promise((resolve) => {
+            let child = child_process("bash", [scriptPath, this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit', env: {...process.env}})
+            child.on('close', (code) => {
+                if (code === 0) {
+                    resolve(true)
+                } else {
+                    resolve(false)
+                }
+            })
+        })
     }
 
 }

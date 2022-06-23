@@ -1,6 +1,6 @@
 class Build{
 
-    constructor(id, isSuccess, buildStatus, projectName, committer, commitTimestamp, commitSha, commitMessage, log) {
+    constructor(id, isSuccess, buildStatus, projectName, committer, commitTimestamp, commitSha, commitMessage, log, logFileName) {
         this.id = id
         this.isSuccess = isSuccess
         this.buildStatus = buildStatus
@@ -10,6 +10,7 @@ class Build{
         this.commitSha = commitSha
         this.commitMessage = commitMessage
         this.log = log
+        this.logFileName = logFileName
     }
 
     toJSON() {
@@ -21,7 +22,8 @@ class Build{
             committer: this.committer,
             commitTimestamp: this.commitTimestamp,
             commitSha: this.commitSha,
-            commitMessage: this.commitMessage
+            commitMessage: this.commitMessage,
+            logFileName: this.logFileName
         }
     }
 }
