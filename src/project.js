@@ -85,7 +85,7 @@ class Project {
                 allFilesPaths.match(/\.jar$/) !== null)[0]
             let buildPath = buildFolder + buildFile
             let splintedBuildFileName = buildFile.split(".")
-            build.fileName = `${splintedBuildFileName[0]}-${build.id}.${splintedBuildFileName[1]}`
+            build.fileName = `${splintedBuildFileName[0]}-${build.id}.${splintedBuildFileName[splintedBuildFileName.length - 1]}`
             await fs.promises.rename(buildPath, `builds/${this.projectName}/${splintedBuildFileName}`)
         }
         await fs.promises.writeFile(`builds/${this.projectName}/${build.logFileName}`, build.log, "utf-8")
