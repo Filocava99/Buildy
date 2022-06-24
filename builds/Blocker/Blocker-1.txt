@@ -11,29 +11,17 @@ Here are the highlights of this release:
 For more details see https://docs.gradle.org/7.4.2/release-notes.html
 
 Starting a Gradle Daemon (subsequent builds will be faster)
-
 > Task :compileJava
-/home/runner/work/Buildy/Buildy/projects/Blocker/src/main/java/it/filippocavallari/blocker/util/Utils.java:201: error: cannot find symbol
-        location.getWorld().spawnParticle(Particle.BLOCK_MARKER, location.add(0.5, 1.5, 0.5), 4);
-                                                  ^
-  symbol:   variable BLOCK_MARKER
-  location: class Particle
-1 error
+> Task :processResources
+> Task :classes
+> Task :jar
+> Task :assemble
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
 
-> Task :compileJava FAILED
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':compileJava'.
-> Compilation failed; see the compiler error output for details.
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-
-* Get more help at https://help.gradle.org
-
-BUILD FAILED in 16s
-1 actionable task: 1 executed
+BUILD SUCCESSFUL in 11s
+3 actionable tasks: 3 executed
