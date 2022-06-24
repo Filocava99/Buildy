@@ -1,0 +1,39 @@
+Downloading https://services.gradle.org/distributions/gradle-7.4.2-bin.zip
+..............................................................................................................
+
+Welcome to Gradle 7.4.2!
+
+Here are the highlights of this release:
+ - Aggregated test and JaCoCo reports
+ - Marking additional test source directories as tests in IntelliJ
+ - Support for Adoptium JDKs in Java toolchains
+
+For more details see https://docs.gradle.org/7.4.2/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Task :compileJava
+/home/runner/work/Buildy/Buildy/projects/Blocker/src/main/java/it/filippocavallari/blocker/util/Utils.java:201: error: cannot find symbol
+        location.getWorld().spawnParticle(Particle.BLOCK_MARKER, location.add(0.5, 1.5, 0.5), 4);
+                                                  ^
+  symbol:   variable BLOCK_MARKER
+  location: class Particle
+1 error
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 16s
+1 actionable task: 1 executed
