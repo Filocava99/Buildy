@@ -1,0 +1,221 @@
+Downloading https://services.gradle.org/distributions/gradle-9.2.0-bin.zip
+............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/home/runner/.gradle/wrapper/dists/gradle-9.2.0-bin/11i5gvueggl8a5cioxuftxrik/gradle-9.2.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+Welcome to Gradle 9.2.0!
+
+Here are the highlights of this release:
+ - Windows ARM support
+ - Improved publishing APIs
+ - Better guidance for dependency verification failures
+
+For more details see https://docs.gradle.org/9.2.0/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+Kotlin does not yet support 25 JDK target, falling back to Kotlin JVM_24 JVM target
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+
+> Task :buildSrc:compileKotlin
+Kotlin does not yet support 25 JDK target, falling back to Kotlin JVM_24 JVM target
+w: ⚠️ Inconsistent JVM Target Compatibility Between Java and Kotlin Tasks
+Inconsistent JVM-target compatibility detected for tasks 'compileJava' (25) and 'compileKotlin' (24).
+This will become an error in Gradle 8.0.
+Solution: Consider using JVM Toolchain: https://kotl.in/gradle/jvm/toolchain
+Learn more about JVM-target validation: https://kotl.in/gradle/jvm/target-validation
+
+
+> Task :buildSrc:pluginDescriptors
+> Task :buildSrc:processResources
+
+> Task :buildSrc:compileKotlin
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/buildSrc/src/main/kotlin/RunHytalePlugin.kt:123:24 'fun buildFinished(action: Action<in BuildResult>): Unit' is deprecated. Deprecated in Java.
+
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:classes
+> Task :buildSrc:jar
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :processResources
+> Task :processTestResources NO-SOURCE
+> Task :compileKotlin
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:210:35 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:283:35 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:303:79 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:467:40 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:468:40 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:574:40 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:575:40 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/AdminCommand.kt:658:43 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/BaseCommand.kt:275:86 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/BaseCommand.kt:283:96 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ChatCommand.kt:133:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ChatCommand.kt:334:77 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:101:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:125:77 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:146:30 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:247:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:500:35 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:540:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ClaimCommand.kt:626:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/InviteCommand.kt:72:84 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/InviteCommand.kt:125:35 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/InviteCommand.kt:166:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/InviteCommand.kt:216:37 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/InviteCommand.kt:323:37 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:80:40 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:137:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:257:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:270:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:317:48 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:354:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:442:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:461:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:539:35 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:565:81 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:584:50 Unnecessary safe call on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:620:44 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:657:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:670:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:727:44 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:764:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:777:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:836:43 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:837:47 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:882:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:893:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:985:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:996:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1063:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1074:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1127:33 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1164:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1175:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1266:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/NationCommand.kt:1277:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:221:35 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:263:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:379:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:590:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:652:50 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:653:48 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:654:42 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:696:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:804:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:864:71 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:865:74 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:908:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:997:33 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:1041:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:1114:133 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:1232:49 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:1233:44 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:1253:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/PlotCommand.kt:1440:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ResCommand.kt:43:33 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ResCommand.kt:103:77 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ResCommand.kt:156:77 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ResidentCommand.kt:39:33 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ResidentCommand.kt:92:77 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ResidentCommand.kt:140:77 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TaSetLangCommand.kt:27:45 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TaxCommand.kt:74:78 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TaxCommand.kt:138:90 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TaxCommand.kt:195:49 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TaxCommand.kt:282:53 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ToggleCommand.kt:75:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ToggleCommand.kt:152:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ToggleCommand.kt:225:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/ToggleCommand.kt:303:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:129:40 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:308:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:372:44 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:412:68 Unnecessary non-null assertion (!!) on a non-null receiver of type 'String'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:488:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:573:33 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:619:60 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:722:47 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:773:58 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:775:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:807:47 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:851:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:929:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1016:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1035:26 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1115:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1246:54 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1284:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1346:54 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1384:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1460:54 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1498:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1559:54 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1597:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1694:45 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1742:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1794:86 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1795:83 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1796:74 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1836:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1899:71 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1900:74 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:1940:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:2054:43 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:2055:47 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:2100:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:2192:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:2259:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/command/TownCommand.kt:2341:69 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/event/EventRegistrar.kt:166:58 Condition is always 'true'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/event/EventRegistrar.kt:188:59 Condition is always 'true'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:78:65 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:256:26 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:261:55 Elvis operator (?:) always returns the left operand of non-nullable type 'String'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:330:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:335:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:340:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:345:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:350:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:355:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:360:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/gui/TownInfoGui.kt:365:17 'fun <FieldType : Any!> addField(p0: KeyedCodec<FieldType!>, p1: BiConsumer<TownInfoGui.TownInfoData!, FieldType!>, p2: Function<TownInfoGui.TownInfoData!, FieldType!>): BuilderCodec.Builder<TownInfoGui.TownInfoData!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/listener/ClaimStickDebugListener.kt:4:7 'class PlayerInteractEvent : PlayerEvent<String!>, ICancellable' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/listener/ClaimStickDebugListener.kt:92:46 'class PlayerInteractEvent : PlayerEvent<String!>, ICancellable' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/listener/ClaimStickDebugListener.kt:116:36 'val uuid: UUID?' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:10:7 'class ChunkColumn : Any, Component<ChunkStore!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:60:66 'class ChunkColumn : Any, Component<ChunkStore!>' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:227:73 Redundant call of conversion method.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:228:67 Redundant call of conversion method.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:250:77 Redundant call of conversion method.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:254:75 Redundant call of conversion method.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/map/TownyImageBuilder.kt:255:75 Redundant call of conversion method.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/service/ChatHandler.kt:51:61 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/service/ChatHandler.kt:89:61 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/service/ChatHandler.kt:97:65 Unnecessary non-null assertion (!!) on a non-null receiver of type 'NationId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/service/ChatHandler.kt:191:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/service/ChatHandler.kt:192:73 Unnecessary non-null assertion (!!) on a non-null receiver of type 'TownId'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/service/ChatHandler.kt:196:26 Unnecessary safe call on a non-null receiver of type 'Resident'.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/storage/BatchStorageWriter.kt:145:16 This declaration needs opt-in. Its usage should be marked with '@kotlinx.coroutines.ExperimentalCoroutinesApi' or '@OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)'
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/util/PlotBorderManager.kt:123:65 No cast needed.
+w: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/src/main/kotlin/it/cava99/towny3d/util/PlotBorderManager.kt:130:22 No cast needed.
+
+> Task :compileJava NO-SOURCE
+> Task :classes
+> Task :jar
+> Task :shadowJar
+> Task :assemble
+> Task :compileTestKotlin NO-SOURCE
+> Task :compileTestJava NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+
+[Incubating] Problems report is available at: file:///home/runner/work/Buildy/Buildy/projects/Towny3D-Hytale/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 1m 48s
+8 actionable tasks: 8 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.0/userguide/configuration_cache_enabling.html
