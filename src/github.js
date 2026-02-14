@@ -40,7 +40,13 @@ class Repository {
 function cloneProject(project){
     const token = process.env.MYTOKEN;
     const authenticatedUrl = project.repository.cloneUrl.replace('https://', `https://${token}@`);
-    return spawn("git", ["clone", "-b", project.mainBranch, authenticatedUrl, `projects/${project.repository.name}`], { stdio: 'inherit' })
+    console.log(`Cloning ${project.repository.owner}/${project.repository.name}...`);
+    return spawn("git", ["clone", "-b", project.mainBranch, authenticatedUrl, `projects/${project.repository.name}`], {
+        stdio: ['ignore', 'pipe', 'pipe']
+    }).catch(err => {
+        console.error(`Clone failed: ${err.message?.replace(token, '***') || 'Unknown error'}`);
+        throw err;
+    });
 }
 
 async function requestToGithub(endpoint, config) {
