@@ -38,7 +38,9 @@ class Repository {
 }
 
 function cloneProject(project){
-    return spawn("git", ["clone", "-b", project.mainBranch, project.repository.cloneUrl, `projects/${project.repository.name}`], { stdio: 'inherit' })
+    const token = process.env.MYTOKEN;
+    const authenticatedUrl = project.repository.cloneUrl.replace('https://', `https://${token}@`);
+    return spawn("git", ["clone", "-b", project.mainBranch, authenticatedUrl, `projects/${project.repository.name}`], { stdio: 'inherit' })
 }
 
 async function requestToGithub(endpoint, config) {
