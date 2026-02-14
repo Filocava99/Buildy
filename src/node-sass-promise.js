@@ -1,13 +1,20 @@
-const sass = require('node-sass');
+const sass = require('sass');
 
 const render = (config) => {
-    return new Promise((resolve,reject) => {
-        return sass.render(config, (err, result) => {
-            if(err)
-                return reject(err)
-            resolve(result);
-        })
-    })
+    const options = {
+        style: config.outputStyle || 'expanded'
+    };
+
+    if (config.sourceMap) {
+        options.sourceMap = true;
+    }
+
+    return sass.compileAsync(config.file, options).then(result => {
+        return {
+            css: Buffer.from(result.css),
+            map: result.sourceMap ? Buffer.from(result.sourceMap) : null
+        };
+    });
 }
 
 module.exports = {
