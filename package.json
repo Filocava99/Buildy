@@ -3,20 +3,23 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build:sass": "sass public/stylesheets:public/stylesheets",
+    "prestart": "npm run build:sass",
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "axios": "^0.26.0",
+    "axios": "^1.7.9",
     "badge-maker": "^3.3.1",
     "child-process-promise": "^2.2.1",
     "chmodr": "^1.2.0",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "cookie-parser": "~1.4.7",
+    "debug": "~4.4.0",
+    "express": "~4.21.2",
     "hbs": "^4.2.0",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "node-sass": "^7.0.1",
-    "node-sass-middleware": "^1.0.1"
+    "http-errors": "~2.0.0",
+    "morgan": "~1.10.0"
+  },
+  "devDependencies": {
+    "sass": "^1.85.1"
   }
 }
