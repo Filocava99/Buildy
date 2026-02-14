@@ -105,9 +105,16 @@ class Project {
     }
 
     async commitBuild(build) {
+        // Only commit if build was successful and has files to commit
+        if (!build.isSuccess || !build.fileName) {
+            console.log(`Skipping commit for failed build ${build.id}`)
+            return false
+        }
+
         let scriptPath = path.resolve(`src/commit_build.sh`)
+        // Use projectName for the directory (not repository.name) since files are saved under projectName
         return new Promise((resolve) => {
-            let child = child_process("bash", [scriptPath, this.repository.name, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit', env: {...process.env}})
+            let child = child_process("bash", [scriptPath, this.projectName, build.fileName, build.logFileName, process.env.MYTOKEN], {stdio: 'inherit', env: {...process.env}})
             child.on('close', (code) => {
                 if (code === 0) {
                     resolve(true)
