@@ -14,7 +14,7 @@
     "chmodr": "^1.2.0",
     "cookie-parser": "~1.4.7",
     "debug": "~4.4.0",
-    "express": "~4.21.2",
+    "express": "~4.22.1",
     "hbs": "^4.2.0",
     "http-errors": "~2.0.0",
     "morgan": "~1.10.0"
